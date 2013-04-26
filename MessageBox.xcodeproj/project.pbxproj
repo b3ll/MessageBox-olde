@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66136EFF172B3A7A006FEF0E /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 66136EFE172B3A7A006FEF0E /* substrate.h */; };
+		66136F00172B3A7A006FEF0E /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 66136EFE172B3A7A006FEF0E /* substrate.h */; };
+		663608B3171D3A4700C8D2C5 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */; };
+		663608B7171EEA4A00C8D2C5 /* BackBoardServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */; };
+		6674B2A417287E0800095CDE /* ABMessageBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6674B2A317287E0800095CDE /* ABMessageBox.h */; };
+		6674B2A717287E3300095CDE /* ABMessageBoxWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6674B2A517287E3300095CDE /* ABMessageBoxWindow.h */; };
+		6674B2A817287E3300095CDE /* ABMessageBoxWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6674B2A617287E3300095CDE /* ABMessageBoxWindow.mm */; };
+		66914D54171A5E0E00041ED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914D53171A5E0E00041ED5 /* Foundation.framework */; };
+		66914D64171A5E0E00041ED5 /* ABMessageBox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66914D63171A5E0E00041ED5 /* ABMessageBox.mm */; };
+		66914E32171A5E3B00041ED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E31171A5E3B00041ED5 /* UIKit.framework */; };
+		66914E34171A5E4800041ED5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E33171A5E4800041ED5 /* QuartzCore.framework */; };
+		66914E40171A632700041ED5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E3F171A632700041ED5 /* CoreGraphics.framework */; };
+		66D26FC1172888B000767DD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914D53171A5E0E00041ED5 /* Foundation.framework */; };
+		66D26FD61728890900767DD4 /* ABMessageBox_Facebook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6674B29E17287D8600095CDE /* ABMessageBox_Facebook.mm */; };
+		66D26FD71728894200767DD4 /* ABMessageBox_Facebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */; };
+		66D26FD81728897500767DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E31171A5E3B00041ED5 /* UIKit.framework */; };
+		66D26FD91728897F00767DD4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E33171A5E4800041ED5 /* QuartzCore.framework */; };
+		66D26FDA1728898500767DD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E3F171A632700041ED5 /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66D26FD4172888D400767DD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66914D47171A5E0E00041ED5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66D26FBF172888B000767DD4;
+			remoteInfo = MessageBox_Facebook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66136EFE172B3A7A006FEF0E /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackBoardServices.framework; path = System/Library/PrivateFrameworks/BackBoardServices.framework; sourceTree = SDKROOT; };
+		6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox_Facebook.h; sourceTree = "<group>"; };
+		6674B29E17287D8600095CDE /* ABMessageBox_Facebook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ABMessageBox_Facebook.mm; sourceTree = "<group>"; };
+		6674B2A317287E0800095CDE /* ABMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox.h; sourceTree = "<group>"; };
+		6674B2A517287E3300095CDE /* ABMessageBoxWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBoxWindow.h; sourceTree = "<group>"; };
+		6674B2A617287E3300095CDE /* ABMessageBoxWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ABMessageBoxWindow.mm; sourceTree = "<group>"; };
+		66914D50171A5E0E00041ED5 /* MessageBox.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MessageBox.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		66914D53171A5E0E00041ED5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		66914D59171A5E0E00041ED5 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		66914D5B171A5E0E00041ED5 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		66914D5F171A5E0E00041ED5 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MessageBox.plist; path = Package/Library/PreferenceLoader/Preferences/MessageBox.plist; sourceTree = "<group>"; };
+		66914D60171A5E0E00041ED5 /* MessageBoxIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MessageBoxIcon.png; path = Package/Library/PreferenceLoader/Preferences/MessageBoxIcon.png; sourceTree = "<group>"; };
+		66914D61171A5E0E00041ED5 /* MessageBoxIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MessageBoxIcon@2x.png"; path = "Package/Library/PreferenceLoader/Preferences/MessageBoxIcon@2x.png"; sourceTree = "<group>"; };
+		66914D62171A5E0E00041ED5 /* MessageBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MessageBox-Prefix.pch"; sourceTree = "<group>"; };
+		66914D63171A5E0E00041ED5 /* ABMessageBox.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ABMessageBox.mm; sourceTree = "<group>"; };
+		66914D67171A5E0E00041ED5 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MessageBox.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MessageBox.plist; sourceTree = "<group>"; };
+		66914E31171A5E3B00041ED5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		66914E33171A5E4800041ED5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		66914E3F171A632700041ED5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		66D26FC0172888B000767DD4 /* MessageBox_Facebook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MessageBox_Facebook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		66D26FDB172889B000767DD4 /* MessageBox_Facebook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = MessageBox_Facebook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MessageBox_Facebook.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66914D4C171A5E0E00041ED5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663608B7171EEA4A00C8D2C5 /* BackBoardServices.framework in Frameworks */,
+				663608B3171D3A4700C8D2C5 /* libsubstrate.dylib in Frameworks */,
+				66914E40171A632700041ED5 /* CoreGraphics.framework in Frameworks */,
+				66914E34171A5E4800041ED5 /* QuartzCore.framework in Frameworks */,
+				66914E32171A5E3B00041ED5 /* UIKit.framework in Frameworks */,
+				66914D54171A5E0E00041ED5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66D26FBC172888B000767DD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66D26FDA1728898500767DD4 /* CoreGraphics.framework in Frameworks */,
+				66D26FD91728897F00767DD4 /* QuartzCore.framework in Frameworks */,
+				66D26FD81728897500767DD4 /* UIKit.framework in Frameworks */,
+				66D26FC1172888B000767DD4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66914D46171A5E0E00041ED5 = {
+			isa = PBXGroup;
+			children = (
+				66914D55171A5E0E00041ED5 /* MessageBox */,
+				66914D52171A5E0E00041ED5 /* Frameworks */,
+				66914D51171A5E0E00041ED5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66914D51171A5E0E00041ED5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66914D50171A5E0E00041ED5 /* MessageBox.dylib */,
+				66D26FC0172888B000767DD4 /* MessageBox_Facebook.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66914D52171A5E0E00041ED5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */,
+				663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */,
+				66914E3F171A632700041ED5 /* CoreGraphics.framework */,
+				66914E33171A5E4800041ED5 /* QuartzCore.framework */,
+				66914E31171A5E3B00041ED5 /* UIKit.framework */,
+				66914D53171A5E0E00041ED5 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66914D55171A5E0E00041ED5 /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				6674B2A317287E0800095CDE /* ABMessageBox.h */,
+				66914D63171A5E0E00041ED5 /* ABMessageBox.mm */,
+				6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */,
+				6674B29E17287D8600095CDE /* ABMessageBox_Facebook.mm */,
+				6674B2A517287E3300095CDE /* ABMessageBoxWindow.h */,
+				6674B2A617287E3300095CDE /* ABMessageBoxWindow.mm */,
+				66914D56171A5E0E00041ED5 /* Package */,
+				66914D5A171A5E0E00041ED5 /* Supporting Files */,
+			);
+			path = MessageBox;
+			sourceTree = "<group>";
+		};
+		66914D56171A5E0E00041ED5 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				66914D57171A5E0E00041ED5 /* DEBIAN */,
+				66914D5C171A5E0E00041ED5 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		66914D57171A5E0E00041ED5 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				66914D59171A5E0E00041ED5 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		66914D5A171A5E0E00041ED5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				66136EFE172B3A7A006FEF0E /* substrate.h */,
+				66914D5B171A5E0E00041ED5 /* PackageVersion.plist */,
+				66914D62171A5E0E00041ED5 /* MessageBox-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		66914D5C171A5E0E00041ED5 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				66914E41171A639800041ED5 /* Application Support */,
+				66914D5D171A5E0E00041ED5 /* PreferenceLoader */,
+				66914D65171A5E0E00041ED5 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		66914D5D171A5E0E00041ED5 /* PreferenceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				66914D5E171A5E0E00041ED5 /* Preferences */,
+			);
+			name = PreferenceLoader;
+			sourceTree = "<group>";
+		};
+		66914D5E171A5E0E00041ED5 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				66914D5F171A5E0E00041ED5 /* MessageBox.plist */,
+				66914D60171A5E0E00041ED5 /* MessageBoxIcon.png */,
+				66914D61171A5E0E00041ED5 /* MessageBoxIcon@2x.png */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		66914D65171A5E0E00041ED5 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				66914D66171A5E0E00041ED5 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		66914D66171A5E0E00041ED5 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				66D26FDB172889B000767DD4 /* MessageBox_Facebook.plist */,
+				66914D67171A5E0E00041ED5 /* MessageBox.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		66914E41171A639800041ED5 /* Application Support */ = {
+			isa = PBXGroup;
+			children = (
+				66914E42171A639800041ED5 /* MessageBox */,
+			);
+			name = "Application Support";
+			path = "Package/Library/Application Support";
+			sourceTree = "<group>";
+		};
+		66914E42171A639800041ED5 /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MessageBox;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		66914D4D171A5E0E00041ED5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6674B2A417287E0800095CDE /* ABMessageBox.h in Headers */,
+				6674B2A717287E3300095CDE /* ABMessageBoxWindow.h in Headers */,
+				66136EFF172B3A7A006FEF0E /* substrate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66D26FBD172888B000767DD4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66D26FD71728894200767DD4 /* ABMessageBox_Facebook.h in Headers */,
+				66136F00172B3A7A006FEF0E /* substrate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		66914D4F171A5E0E00041ED5 /* MessageBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66914D6A171A5E0E00041ED5 /* Build configuration list for PBXNativeTarget "MessageBox" */;
+			buildPhases = (
+				66914D4B171A5E0E00041ED5 /* Sources */,
+				66914D4C171A5E0E00041ED5 /* Frameworks */,
+				66914D4D171A5E0E00041ED5 /* Headers */,
+				66914D4E171A5E0E00041ED5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66D26FD5172888D400767DD4 /* PBXTargetDependency */,
+			);
+			name = MessageBox;
+			productName = MessageBox;
+			productReference = 66914D50171A5E0E00041ED5 /* MessageBox.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		66D26FBF172888B000767DD4 /* MessageBox_Facebook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66D26FD0172888B000767DD4 /* Build configuration list for PBXNativeTarget "MessageBox_Facebook" */;
+			buildPhases = (
+				66D26FBB172888B000767DD4 /* Sources */,
+				66D26FBC172888B000767DD4 /* Frameworks */,
+				66D26FBD172888B000767DD4 /* Headers */,
+				66D26FBE172888B000767DD4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MessageBox_Facebook;
+			productName = MessageBox_Facebook;
+			productReference = 66D26FC0172888B000767DD4 /* MessageBox_Facebook.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66914D47171A5E0E00041ED5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 66914D4A171A5E0E00041ED5 /* Build configuration list for PBXProject "MessageBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 66914D46171A5E0E00041ED5;
+			productRefGroup = 66914D51171A5E0E00041ED5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66914D4F171A5E0E00041ED5 /* MessageBox */,
+				66D26FBF172888B000767DD4 /* MessageBox_Facebook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66914D4E171A5E0E00041ED5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export iOSOpenDevDevice=10.0.1.5\ncp ${PROJECT_DIR}/LatestBuild/MessageBox_Facebook.dylib ${PROJECT_DIR}/MessageBox/Package/Library/MobileSubstrate/DynamicLibraries/\ncp ${PROJECT_DIR}/LatestBuild/MessageBox.dylib ${PROJECT_DIR}/MessageBox/Package/Library/MobileSubstrate/DynamicLibraries/\n/opt/iOSOpenDev/bin/iosod --xcbp\n\ncp ${PROJECT_DIR}/LatestBuild/MessageBox_Facebook.dylib ${PROJECT_DIR}/MessageBox/Package/Library/MobileSubstrate/DynamicLibraries/\ncp ${PROJECT_DIR}/LatestBuild/MessageBox.dylib ${PROJECT_DIR}/MessageBox/Package/Library/MobileSubstrate/DynamicLibraries/\n\nif [ \"$iOSOpenDevInstallOnAnyBuild\" == \"NO\" ]; then\n    scp -P 2222 ${PROJECT_DIR}/Packages/ca.adambell.MessageBox*.deb root@localhost:~/\n    ssh -p 2222 root@localhost \"dpkg -i ca.adambell.MessageBox*.deb\"\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox_Facebook.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    ssh -p 2222 root@localhost \"killall SpringBoard && killall backboardd\"\nfi";
+		};
+		66D26FBE172888B000767DD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66914D4B171A5E0E00041ED5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66914D64171A5E0E00041ED5 /* ABMessageBox.mm in Sources */,
+				6674B2A817287E3300095CDE /* ABMessageBoxWindow.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66D26FBB172888B000767DD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66D26FD61728890900767DD4 /* ABMessageBox_Facebook.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66D26FD5172888D400767DD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66D26FBF172888B000767DD4 /* MessageBox_Facebook */;
+			targetProxy = 66D26FD4172888D400767DD4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		66914D68171A5E0E00041ED5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		66914D69171A5E0E00041ED5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		66914D6B171A5E0E00041ED5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"\"$(SRCROOT)/MessageBox\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"${PROJECT_DIR}/**",
+				);
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/BackBoardServices.framework\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = YES;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
+			};
+			name = Debug;
+		};
+		66914D6C171A5E0E00041ED5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"\"$(SRCROOT)/MessageBox\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"${PROJECT_DIR}/**",
+				);
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/BackBoardServices.framework\"",
+				);
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = YES;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = YES;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
+			};
+			name = Release;
+		};
+		66D26FD1172888B000767DD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = NO;
+			};
+			name = Debug;
+		};
+		66D26FD2172888B000767DD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66914D4A171A5E0E00041ED5 /* Build configuration list for PBXProject "MessageBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66914D68171A5E0E00041ED5 /* Debug */,
+				66914D69171A5E0E00041ED5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66914D6A171A5E0E00041ED5 /* Build configuration list for PBXNativeTarget "MessageBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66914D6B171A5E0E00041ED5 /* Debug */,
+				66914D6C171A5E0E00041ED5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66D26FD0172888B000767DD4 /* Build configuration list for PBXNativeTarget "MessageBox_Facebook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66D26FD1172888B000767DD4 /* Debug */,
+				66D26FD2172888B000767DD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66914D47171A5E0E00041ED5 /* Project object */;
+}

@@ -1,0 +1,13 @@
+{
+	Filter = {
+		Bundles = (
+			"com.apple.springboard",
+			"com.apple.MobileSMS",
+			"com.apple.UIKit",
+		);
+		Executables = (
+			backboardd,
+		);
+		Mode = Any;
+	};
+}

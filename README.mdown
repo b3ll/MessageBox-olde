@@ -1,0 +1,37 @@
+Message Box
+=============
+
+Set your Facebook Chat Heads free!
+
+How do I Message Box?
+=============
+
+It's really simple. Simply install the .deb (in Packages) using any means (ssh, iFile) on any 6.X jailbroken iOS Device. You'll also need to reboot (respringing is not enough as parts of this hook into backboardd, so you could also just kill SpringBoard **AND** backboardd and you should be fine).
+
+After that, simply open the Facebook app, and you'll be able to bring any Chat Heads outside the app when you quit it.
+
+**Note**: Since the Facebook app is also always "suspended", it won't get Chat notifications unless you have a manual refresh. This is configurable in Settings, but keep in mind a shorter refresh interval will affect battery life. 
+
+How do I compile?
+=============
+
+I used iOSOpenDev + CaptainHook for this. You'll need to install iOSOpenDev and setup the environment variables in the Xcode Project (under Build Settings for the MessageBox target) or play around with the project yourself and set things up to work without iOSOpenDev. You'll also need to [patch](https://github.com/kokoabim/iOSOpenDev/pull/15) your own substrate.h (or use the one I provided) to support ARC.
+
+If anyone wants to setup a theos version of this, that's cool too!
+
+Price?
+=============
+
+Totally free! If you'd like to support my continuation of this project (and others!), feel free to [donate](http://www.adambell.ca/donate/)! It'd be much appreciated :D
+
+License?
+=============
+
+Pretty much the BSD license, just don't repackage it and call it your own please! 
+
+Also if you do make some changes, feel free to make a pull request and help make things more awesome!
+
+Support?
+=============
+
+Please feel free to email me at messagebox[at]adambell[dot]me
