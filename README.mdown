@@ -31,7 +31,9 @@ Pretty much the BSD license, just don't repackage it and call it your own please
 
 Also if you do make some changes, feel free to make a pull request and help make things more awesome!
 
-Support?
+Contact Info?
 =============
 
-Please feel free to email me at messagebox[at]adambell[dot]me
+If you have any support requests please feel free to email me at messagebox[at]adambell[dot]me.
+
+Otherwise, feel free to follow me on [twitter](http://www.twitter.com/b3ll)!
