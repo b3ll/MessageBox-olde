@@ -246,7 +246,6 @@ CHOptimizedMethod1(self, SBBulletinBannerView *, SBBulletinBannerView, initWithI
         if ([keepAlive valid])
         {
             notify_post(PUSH_NOTIFICATION_RECEIVED);
-            return nil;
         }
     }
     
