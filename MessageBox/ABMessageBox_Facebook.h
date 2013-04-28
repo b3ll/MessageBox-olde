@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "ABMessageBox.h"
 
+@interface AppDelegate : NSObject
+- (void)setChatHeadsAreIsolated:(BOOL)isolated;
+@end
+
 @interface FBDimmingView : UIView
 - (void)setBackgroundAlpha:(CGFloat)alpha;
 @end
@@ -20,7 +24,10 @@
 - (void)moveStackToHomeLocation;
 - (CGPoint)nearestMagnetLocationForPoint:(CGPoint)point;
 -(void)updateChatHeadsLocationForRotation;
+- (CGPoint)pointForChatHeadViewInStackMode:(id)chatHead;
+- (void)tappedCaptureView:(id)view;
 
+@property(nonatomic) int layoutMode;
 @property(strong, nonatomic) NSMutableArray* chatHeadViews;
 @end
 
