@@ -17,6 +17,8 @@
 CHDeclareClass(UIWindow);
 CHDeclareClass(UITextEffectsWindow);
 CHDeclareClass(SBUIController);
+CHDeclareClass(SBAppSwitcherController)
+CHDeclareClass(SBAwayController)
 CHDeclareClass(UIViewController);
 
 static BKSProcessAssertion *keepAlive;
@@ -211,6 +213,79 @@ CHOptimizedMethod4(self, void, UIViewController, _willRotateToInterfaceOrientati
     forceFacebookApplicationRotation(orientation);
 }
 
+//Show and the hide chat heads accordingly for presentation of the app switcher bar
+
+static BOOL restoreChatHeadsIfOpeningFacebook = NO;
+
+CHOptimizedMethod0(self, void, SBAppSwitcherController, viewWillAppear)
+{
+    CHSuper0(SBAppSwitcherController, viewWillAppear);
+    if (![[[(SpringBoard *)[UIApplication sharedApplication]_accessibilityFrontMostApplication]bundleIdentifier]isEqualToString:@"com.facebook.Facebook"]) {
+        notify_post("ca.adambell.MessageBox-throwChatHeadsOffscreen");
+        restoreChatHeadsIfOpeningFacebook = YES;
+    }
+}
+
+CHOptimizedMethod0(self, void, SBAppSwitcherController, viewWillDisappear)
+{
+    CHSuper0(SBAppSwitcherController, viewWillDisappear);
+    
+    if (![[[(SpringBoard *)[UIApplication sharedApplication]_accessibilityFrontMostApplication]bundleIdentifier]isEqualToString:@"com.facebook.Facebook"])
+        notify_post("ca.adambell.MessageBox-pushChatHeadsOnscreen");
+    
+    else if (restoreChatHeadsIfOpeningFacebook) {
+        notify_post("ca.adambell.MessageBox-pushChatHeadsOnscreenInstant");
+        restoreChatHeadsIfOpeningFacebook = NO;
+    }
+}
+
+//Show and hide the chat heads accordingly for lock and unlock
+
+CHOptimizedMethod4(self, void, SBAwayController, frontLocked, BOOL, locked, withAnimation, NSInteger, animation, automatically, BOOL, automatically, disableLockSound, BOOL, disableLockSound)
+{
+    notify_post("ca.adambell.MessageBox-throwChatHeadsOffscreen");
+    CHSuper4(SBAwayController, frontLocked, locked, withAnimation, animation, automatically, automatically, disableLockSound, disableLockSound);
+}
+
+CHOptimizedMethod3(self, void, SBAwayController, _finishUnlockWithSound, BOOL, withSound, unlockSource, int, unlockSource, isAutoUnlock, BOOL, isAutoUnlock)
+{
+    CHSuper3(SBAwayController, _finishUnlockWithSound, withSound, unlockSource, unlockSource, isAutoUnlock, isAutoUnlock);
+    
+    double delayInSeconds = 0.3;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        notify_post("ca.adambell.MessageBox-pushChatHeadsOnscreen");
+    });
+}
+
+//Stack up the chat heads when the home button is pressed
+
+CHOptimizedMethod0(self, BOOL, SBUIController, clickedMenuButton) {
+    
+    //Sending while FB isn't alive will cause a hang waiting for a reply (since it'll never get one)
+    //To keep in app as stock as possible, don't intercept the home button when the app is active
+    //So only take action if FB is active but in the background
+    if (keepAlive) {
+        CPDistributedMessagingCenter *center = [CPDistributedMessagingCenter centerNamed:@"com.adambell.MessageBox.FBMessageCenter"];
+        NSDictionary *reply = [center sendMessageAndReceiveReplyName:@"DismissChatHeadsIfNeeded" userInfo:nil];
+        
+        if ([reply[@"DismissWasNeeded"] boolValue])
+            return YES;
+    }
+    
+    return CHSuper0(SBUIController, clickedMenuButton);
+}
+
+static void fbDidTapChatHead(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    SBIconController *iconController = [NSClassFromString(@"SBIconController") sharedInstance];
+    
+    //If icons are wiggling and a chat head is tapped, stop the wiggling
+    
+    if (iconController.isEditing)
+        [iconController setIsEditing:NO];
+}
+
 static void fbLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
     if (keepAlive != nil)
@@ -290,12 +365,20 @@ CHConstructor
             CFNotificationCenterRef darwin = CFNotificationCenterGetDarwinNotifyCenter();
             CFNotificationCenterAddObserver(darwin, NULL, fbLaunching, CFSTR("ca.adambell.MessageBox.fbLaunching"), NULL, CFNotificationSuspensionBehaviorCoalesce);
             CFNotificationCenterAddObserver(darwin, NULL, fbQuitting, CFSTR("ca.adambell.MessageBox.fbQuitting"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+            CFNotificationCenterAddObserver(darwin, NULL, fbDidTapChatHead, CFSTR("ca.adambell.MessageBox-didTapChatHeadNotification"), NULL, CFNotificationSuspensionBehaviorCoalesce);
             
             CHLoadLateClass(SBUIController);
+            CHLoadLateClass(SBAppSwitcherController);
+            CHLoadLateClass(SBAwayController);
             
             CHHook0(UIWindow, makeKeyAndVisible);
             CHHook0(SBUIController, finishedUnscattering);
             CHHook3(SBUIController, window, willRotateToInterfaceOrientation, duration);
+            CHHook0(SBAppSwitcherController, viewWillAppear);
+            CHHook0(SBAppSwitcherController, viewWillDisappear);
+            CHHook4(SBAwayController, frontLocked, withAnimation, automatically, disableLockSound);
+            CHHook3(SBAwayController, _finishUnlockWithSound, unlockSource, isAutoUnlock);
+            CHHook0(SBUIController, clickedMenuButton);
         }
         
         // Need to go lower to hook backboardd stuff
