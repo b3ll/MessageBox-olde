@@ -1,0 +1,16 @@
+Package: ca.adambell.MessageBox
+Name: Message Box
+Version: 1.0-2
+Description: Set your Facebook Chat Heads free, and use them everywhere!
+Section: Tweaks
+Depends: firmware (>= 5.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: Adam Bell
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 

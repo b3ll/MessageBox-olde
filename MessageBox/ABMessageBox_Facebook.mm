@@ -80,7 +80,7 @@ CHDeclareMethod0(void, FBChatHeadViewController, dismissPopoverInstantly)
     [fbChatHeadViewController dismissPopoverAnimated:NO];
 }
 
-CHOptimizedMethod1(self, void, AppDelegate, applicationWillResignActive, UIApplication *, app)
+CHOptimizedMethod1(self, void, AppDelegate, applicationDidEnterBackground, UIApplication *, app)
 {
     notify_post("ca.adambell.MessageBox.fbQuitting");
     
@@ -137,7 +137,7 @@ CHOptimizedMethod1(self, void, AppDelegate, applicationWillResignActive, UIAppli
         view.hidden = YES;
     }
     
-    CHSuper1(AppDelegate, applicationWillResignActive, app);
+    CHSuper1(AppDelegate, applicationDidEnterBackground, app);
 }
 
 CHOptimizedMethod1(self, void, AppDelegate, applicationWillEnterForeground, UIApplication *, app)
@@ -453,7 +453,7 @@ CHConstructor
         CHHook1(FBCoveringSplitView, initWithFrame);
         CHHook1(FBDimmingView, initWithFrame);
         CHHook7(FBChatHeadSurfaceView, initWithFrame, chatHeadProvider, threadUserMap, participantFilter, threadSet, gatingChecker, appProperties);
-        CHHook1(AppDelegate, applicationWillResignActive);
+        CHHook1(AppDelegate, applicationDidEnterBackground);
         CHHook1(AppDelegate, applicationWillEnterForeground);
         CHHook1(AppDelegate, applicationDidBecomeActive);
         CHHook4(FBChatHeadViewController, initWithThreadViewControllerProvider, surfaceViewProvider, threadListControllerProvider, navigator);
