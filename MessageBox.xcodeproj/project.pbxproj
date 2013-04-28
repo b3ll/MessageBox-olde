@@ -25,6 +25,8 @@
 		66D26FD81728897500767DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E31171A5E3B00041ED5 /* UIKit.framework */; };
 		66D26FD91728897F00767DD4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E33171A5E4800041ED5 /* QuartzCore.framework */; };
 		66D26FDA1728898500767DD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E3F171A632700041ED5 /* CoreGraphics.framework */; };
+		6F6556CA172CAB7300DA7115 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6556C9172CAB7300DA7115 /* AppSupport.framework */; };
+		6F6556CB172CAB7700DA7115 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6556C9172CAB7300DA7115 /* AppSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		66914E3F171A632700041ED5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66D26FC0172888B000767DD4 /* MessageBox_Facebook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MessageBox_Facebook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D26FDB172889B000767DD4 /* MessageBox_Facebook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = MessageBox_Facebook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MessageBox_Facebook.plist; sourceTree = "<group>"; };
+		6F6556C9172CAB7300DA7115 /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppSupport.framework; path = System/Library/PrivateFrameworks/AppSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6556CA172CAB7300DA7115 /* AppSupport.framework in Frameworks */,
 				663608B7171EEA4A00C8D2C5 /* BackBoardServices.framework in Frameworks */,
 				663608B3171D3A4700C8D2C5 /* libsubstrate.dylib in Frameworks */,
 				66914E40171A632700041ED5 /* CoreGraphics.framework in Frameworks */,
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6556CB172CAB7700DA7115 /* AppSupport.framework in Frameworks */,
 				66D26FDA1728898500767DD4 /* CoreGraphics.framework in Frameworks */,
 				66D26FD91728897F00767DD4 /* QuartzCore.framework in Frameworks */,
 				66D26FD81728897500767DD4 /* UIKit.framework in Frameworks */,
@@ -112,6 +117,7 @@
 		66914D52171A5E0E00041ED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F6556C9172CAB7300DA7115 /* AppSupport.framework */,
 				663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */,
 				663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */,
 				66914E3F171A632700041ED5 /* CoreGraphics.framework */,
@@ -510,6 +516,10 @@
 				CODE_SIGN_IDENTITY = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
@@ -531,6 +541,10 @@
 				CODE_SIGN_IDENTITY = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
