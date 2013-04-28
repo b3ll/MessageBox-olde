@@ -2,7 +2,7 @@
 // Prefix header for all source files of the 'MessageBox' target in the 'MessageBox' project
 //
 
-#ifndef DEBUG
+#ifdef DEBUG
     #define DebugLog(str, ...) NSLog(str, ##__VA_ARGS__)
 #else
     #define DebugLog(str, ...)
@@ -23,3 +23,4 @@
 #define ROTATION_LANDSCAPE_LEFT_NOTIFICATION "ca.adambell.MessageBox.fbShouldRotateLandscapeLeft"
 #define ROTATION_LANDSCAPE_RIGHT_NOTIFICATION "ca.adambell.MessageBox.fbShouldRotateLandscapeRight"
 #define DEVICE_ORIENTATION_CHANGED_NOTIFICATION "ca.adambell.MessageBox.fbShouldRotateToDeviceOrientation"
+#define PUSH_NOTIFICATION_RECEIVED "ca.adambell.MessageBox.pushNotificationReceived"

@@ -85,6 +85,14 @@ typedef NS_ENUM(NSUInteger, BKSProcessAssertionReason)
 - (void)hookFacebook;
 @end
 
+@interface SBBulletinBannerItem : NSObject
+- (NSString *)title;
+- (NSString *)message;
+- (NSString *)_appName;
+@end
+
+@interface SBBulletinBannerView : UIView
+@end
 
 @interface ABMessageBox : NSObject
 

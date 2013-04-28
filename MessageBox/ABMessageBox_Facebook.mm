@@ -252,13 +252,13 @@ CHOptimizedMethod1(self, id, SPFilterBarView, initWithFrame, CGRect, frame)
 CHDeclareMethod0(void, FBChatHeadViewController, createRefreshTimer)
 {
     [self performSelector:@selector(stopRefreshTimer)];
-    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:refreshInterval
+    /*refreshTimer = [NSTimer scheduledTimerWithTimeInterval:refreshInterval
                                                     target:self
                                                   selector:@selector(enteredForeground)
                                                   userInfo:nil
                                                    repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:refreshTimer
-                                 forMode:NSDefaultRunLoopMode];
+                                 forMode:NSDefaultRunLoopMode];*/
 }
 
 CHDeclareMethod0(void, FBChatHeadViewController, stopRefreshTimer)
@@ -403,6 +403,11 @@ static void fbShouldRotate(CFNotificationCenterRef center, void *observer, CFStr
     [fbChatHeadViewController forceRotationToInterfaceOrientation:newOrientation];
 }
 
+static void fbChatNotificationReceived(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    [fbChatHeadViewController enteredForeground];
+}
+
 static void messageBoxPrefsChanged(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
     NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/User/Library/Preferences/ca.adambell.MessageBox.plist"];
@@ -434,6 +439,7 @@ CHConstructor
         CFNotificationCenterAddObserver(darwin, NULL, fbShouldRotate, CFSTR(ROTATION_LANDSCAPE_LEFT_NOTIFICATION), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, fbShouldRotate, CFSTR(ROTATION_LANDSCAPE_RIGHT_NOTIFICATION), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, messageBoxPrefsChanged, CFSTR("ca.adambell.MessageBox-preferencesChanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+        CFNotificationCenterAddObserver(darwin, NULL, fbChatNotificationReceived, CFSTR(PUSH_NOTIFICATION_RECEIVED), NULL, CFNotificationSuspensionBehaviorCoalesce);
         
         // Load preferences
         messageBoxPrefsChanged(nil, nil, nil, nil, nil);

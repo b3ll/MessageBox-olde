@@ -41,6 +41,151 @@
 		66136EFE172B3A7A006FEF0E /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
 		663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
 		663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackBoardServices.framework; path = System/Library/PrivateFrameworks/BackBoardServices.framework; sourceTree = SDKROOT; };
+		663DA464172D29A8002A02A7 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MessageBox.plist; sourceTree = "<group>"; };
+		663DA465172D29A8002A02A7 /* MessageBoxIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageBoxIcon.png; sourceTree = "<group>"; };
+		663DA466172D29A8002A02A7 /* MessageBoxIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageBoxIcon@2x.png"; sourceTree = "<group>"; };
+		663DA468172D29A8002A02A7 /* .bootstrap */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bootstrap; sourceTree = "<group>"; };
+		663DA46A172D29A8002A02A7 /* bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap.sh; sourceTree = "<group>"; };
+		663DA46B172D29A8002A02A7 /* deb_build_num.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deb_build_num.sh; sourceTree = "<group>"; };
+		663DA46C172D29A8002A02A7 /* denicify.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = denicify.pl; sourceTree = "<group>"; };
+		663DA46D172D29A8002A02A7 /* fakeroot.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fakeroot.sh; sourceTree = "<group>"; };
+		663DA46E172D29A8002A02A7 /* install.copyFile */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.copyFile; sourceTree = "<group>"; };
+		663DA46F172D29A8002A02A7 /* install.exec */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.exec; sourceTree = "<group>"; };
+		663DA470172D29A8002A02A7 /* install.mergeDir */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.mergeDir; sourceTree = "<group>"; };
+		663DA472172D29A8002A02A7 /* aliased.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = aliased.pm; sourceTree = "<group>"; };
+		663DA474172D29A8002A02A7 /* Class.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Class.pm; sourceTree = "<group>"; };
+		663DA477172D29A8002A02A7 /* Class.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Class.pm; sourceTree = "<group>"; };
+		663DA478172D29A8002A02A7 /* Generator.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Generator.pm; sourceTree = "<group>"; };
+		663DA479172D29A8002A02A7 /* Group.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Group.pm; sourceTree = "<group>"; };
+		663DA47A172D29A8002A02A7 /* Method.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Method.pm; sourceTree = "<group>"; };
+		663DA47B172D29A8002A02A7 /* StaticClassGroup.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = StaticClassGroup.pm; sourceTree = "<group>"; };
+		663DA47C172D29A8002A02A7 /* Subclass.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Subclass.pm; sourceTree = "<group>"; };
+		663DA47E172D29A8002A02A7 /* Class.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Class.pm; sourceTree = "<group>"; };
+		663DA47F172D29A8002A02A7 /* Generator.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Generator.pm; sourceTree = "<group>"; };
+		663DA480172D29A8002A02A7 /* Method.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Method.pm; sourceTree = "<group>"; };
+		663DA481172D29A8002A02A7 /* Subclass.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Subclass.pm; sourceTree = "<group>"; };
+		663DA483172D29A8002A02A7 /* Class.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Class.pm; sourceTree = "<group>"; };
+		663DA484172D29A8002A02A7 /* Generator.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Generator.pm; sourceTree = "<group>"; };
+		663DA485172D29A8002A02A7 /* Method.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Method.pm; sourceTree = "<group>"; };
+		663DA486172D29A8002A02A7 /* Subclass.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Subclass.pm; sourceTree = "<group>"; };
+		663DA487172D29A8002A02A7 /* Thunk.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Thunk.pm; sourceTree = "<group>"; };
+		663DA488172D29A8002A02A7 /* Generator.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Generator.pm; sourceTree = "<group>"; };
+		663DA489172D29A8002A02A7 /* Group.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Group.pm; sourceTree = "<group>"; };
+		663DA48A172D29A8002A02A7 /* Ivar.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Ivar.pm; sourceTree = "<group>"; };
+		663DA48B172D29A8002A02A7 /* Method.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Method.pm; sourceTree = "<group>"; };
+		663DA48E172D29A8002A02A7 /* Generator.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Generator.pm; sourceTree = "<group>"; };
+		663DA48F172D29A8002A02A7 /* Patch.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Patch.pm; sourceTree = "<group>"; };
+		663DA490172D29A8002A02A7 /* StaticClassGroup.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = StaticClassGroup.pm; sourceTree = "<group>"; };
+		663DA491172D29A8002A02A7 /* Subclass.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Subclass.pm; sourceTree = "<group>"; };
+		663DA492172D29A8002A02A7 /* Util.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Util.pm; sourceTree = "<group>"; };
+		663DA495172D29A8002A02A7 /* _BridgedObject.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = _BridgedObject.pm; sourceTree = "<group>"; };
+		663DA496172D29A8002A02A7 /* _Undefined.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = _Undefined.pm; sourceTree = "<group>"; };
+		663DA497172D29A8002A02A7 /* Context.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Context.pm; sourceTree = "<group>"; };
+		663DA498172D29A8002A02A7 /* Directory.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Directory.pm; sourceTree = "<group>"; };
+		663DA499172D29A8002A02A7 /* File.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = File.pm; sourceTree = "<group>"; };
+		663DA49A172D29A8002A02A7 /* NICBase.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = NICBase.pm; sourceTree = "<group>"; };
+		663DA49B172D29A8002A02A7 /* NICType.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = NICType.pm; sourceTree = "<group>"; };
+		663DA49C172D29A8002A02A7 /* Symlink.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Symlink.pm; sourceTree = "<group>"; };
+		663DA49E172D29A8002A02A7 /* WrappedMethod.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = WrappedMethod.pm; sourceTree = "<group>"; };
+		663DA4A0172D29A8002A02A7 /* NIC1.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = NIC1.pm; sourceTree = "<group>"; };
+		663DA4A2172D29A8002A02A7 /* _TarMixin.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = _TarMixin.pm; sourceTree = "<group>"; };
+		663DA4A3172D29A8002A02A7 /* Directory.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Directory.pm; sourceTree = "<group>"; };
+		663DA4A4172D29A8002A02A7 /* File.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = File.pm; sourceTree = "<group>"; };
+		663DA4A5172D29A8002A02A7 /* Symlink.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Symlink.pm; sourceTree = "<group>"; };
+		663DA4A6172D29A8002A02A7 /* NICTar.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = NICTar.pm; sourceTree = "<group>"; };
+		663DA4A8172D29A8002A02A7 /* Directory.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Directory.pm; sourceTree = "<group>"; };
+		663DA4A9172D29A8002A02A7 /* File.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = File.pm; sourceTree = "<group>"; };
+		663DA4AA172D29A8002A02A7 /* Symlink.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Symlink.pm; sourceTree = "<group>"; };
+		663DA4AB172D29A8002A02A7 /* NICBase.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = NICBase.pm; sourceTree = "<group>"; };
+		663DA4AC172D29A8002A02A7 /* NICType.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = NICType.pm; sourceTree = "<group>"; };
+		663DA4AE172D29A8002A02A7 /* Method.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = Method.pm; sourceTree = "<group>"; };
+		663DA4AF172D29A8002A02A7 /* PrefixedHandleRedirect.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = PrefixedHandleRedirect.pm; sourceTree = "<group>"; };
+		663DA4B0172D29A8002A02A7 /* parent.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = parent.pm; sourceTree = "<group>"; };
+		663DA4B1172D29A8002A02A7 /* logify.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = logify.pl; sourceTree = "<group>"; };
+		663DA4B2172D29A8002A02A7 /* logos.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = logos.pl; sourceTree = "<group>"; };
+		663DA4B3172D29A8002A02A7 /* nic.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = nic.pl; sourceTree = "<group>"; };
+		663DA4B4172D29A8002A02A7 /* nicify.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = nicify.pl; sourceTree = "<group>"; };
+		663DA4B5172D29A8002A02A7 /* package_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = package_version.sh; sourceTree = "<group>"; };
+		663DA4B6172D29A8002A02A7 /* target.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = target.pl; sourceTree = "<group>"; };
+		663DA4B7172D29A8002A02A7 /* vercmp.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = vercmp.pl; sourceTree = "<group>"; };
+		663DA4B9172D29A8002A02A7 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		663DA4BA172D29A8002A02A7 /* makefiles.docbook */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = makefiles.docbook; sourceTree = "<group>"; };
+		663DA4BE172D29A8002A02A7 /* logos.vim */ = {isa = PBXFileReference; lastKnownFileType = text; path = logos.vim; sourceTree = "<group>"; };
+		663DA4C0172D29A8002A02A7 /* logos.vim */ = {isa = PBXFileReference; lastKnownFileType = text; path = logos.vim; sourceTree = "<group>"; };
+		663DA4C1172D29A8002A02A7 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		663DA4C3172D29A8002A02A7 /* logos.vim */ = {isa = PBXFileReference; lastKnownFileType = text; path = logos.vim; sourceTree = "<group>"; };
+		663DA4C5172D29A8002A02A7 /* DHCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHCommon.h; sourceTree = "<group>"; };
+		663DA4C6172D29A8002A02A7 /* DHHookCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHookCommon.h; sourceTree = "<group>"; };
+		663DA4C8172D29A8002A02A7 /* logos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = logos.h; sourceTree = "<group>"; };
+		663DA4C9172D29A8002A02A7 /* substrate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		663DA4CB172D29A8002A02A7 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
+		663DA4CC172D29A8002A02A7 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstrate.dylib; sourceTree = "<group>"; };
+		663DA4CD172D29A8002A02A7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		663DA4CF172D29A8002A02A7 /* aggregate.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = aggregate.mk; sourceTree = "<group>"; };
+		663DA4D0172D29A8002A02A7 /* application.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = application.mk; sourceTree = "<group>"; };
+		663DA4D1172D29A8002A02A7 /* bundle.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = bundle.mk; sourceTree = "<group>"; };
+		663DA4D2172D29A8002A02A7 /* common.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = common.mk; sourceTree = "<group>"; };
+		663DA4D3172D29A8002A02A7 /* framework.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = framework.mk; sourceTree = "<group>"; };
+		663DA4D5172D29A8002A02A7 /* application.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = application.mk; sourceTree = "<group>"; };
+		663DA4D6172D29A8002A02A7 /* bundle.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = bundle.mk; sourceTree = "<group>"; };
+		663DA4D7172D29A8002A02A7 /* framework.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = framework.mk; sourceTree = "<group>"; };
+		663DA4D8172D29A8002A02A7 /* library.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = library.mk; sourceTree = "<group>"; };
+		663DA4D9172D29A8002A02A7 /* null.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = null.mk; sourceTree = "<group>"; };
+		663DA4DA172D29A8002A02A7 /* rules.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = rules.mk; sourceTree = "<group>"; };
+		663DA4DC172D29A8002A02A7 /* bundle.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = bundle.mk; sourceTree = "<group>"; };
+		663DA4DD172D29A8002A02A7 /* subproject.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = subproject.mk; sourceTree = "<group>"; };
+		663DA4DE172D29A8002A02A7 /* tool.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = tool.mk; sourceTree = "<group>"; };
+		663DA4DF172D29A8002A02A7 /* tweak.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = tweak.mk; sourceTree = "<group>"; };
+		663DA4E0172D29A8002A02A7 /* legacy.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = legacy.mk; sourceTree = "<group>"; };
+		663DA4E1172D29A8002A02A7 /* library.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = library.mk; sourceTree = "<group>"; };
+		663DA4E3172D29A8002A02A7 /* aggregate.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = aggregate.mk; sourceTree = "<group>"; };
+		663DA4E4172D29A8002A02A7 /* application.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = application.mk; sourceTree = "<group>"; };
+		663DA4E5172D29A8002A02A7 /* bundle.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = bundle.mk; sourceTree = "<group>"; };
+		663DA4E6172D29A8002A02A7 /* framework.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = framework.mk; sourceTree = "<group>"; };
+		663DA4E7172D29A8002A02A7 /* library.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = library.mk; sourceTree = "<group>"; };
+		663DA4E8172D29A8002A02A7 /* null.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = null.mk; sourceTree = "<group>"; };
+		663DA4E9172D29A8002A02A7 /* rules.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = rules.mk; sourceTree = "<group>"; };
+		663DA4EA172D29A8002A02A7 /* subproject.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = subproject.mk; sourceTree = "<group>"; };
+		663DA4EB172D29A8002A02A7 /* tool.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = tool.mk; sourceTree = "<group>"; };
+		663DA4EC172D29A8002A02A7 /* tweak.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = tweak.mk; sourceTree = "<group>"; };
+		663DA4ED172D29A8002A02A7 /* messages.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = messages.mk; sourceTree = "<group>"; };
+		663DA4EE172D29A8002A02A7 /* null.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = null.mk; sourceTree = "<group>"; };
+		663DA4EF172D29A8002A02A7 /* package.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = package.mk; sourceTree = "<group>"; };
+		663DA4F1172D29A8002A02A7 /* Darwin-arm.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Darwin-arm.mk"; sourceTree = "<group>"; };
+		663DA4F2172D29A8002A02A7 /* Darwin.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Darwin.mk; sourceTree = "<group>"; };
+		663DA4F3172D29A8002A02A7 /* Linux.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Linux.mk; sourceTree = "<group>"; };
+		663DA4F4172D29A8002A02A7 /* rules.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = rules.mk; sourceTree = "<group>"; };
+		663DA4F5172D29A8002A02A7 /* stage.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = stage.mk; sourceTree = "<group>"; };
+		663DA4F6172D29A8002A02A7 /* subproject.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = subproject.mk; sourceTree = "<group>"; };
+		663DA4F9172D29A8002A02A7 /* darwin.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = darwin.mk; sourceTree = "<group>"; };
+		663DA4FA172D29A8002A02A7 /* darwin_flat_bundle.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = darwin_flat_bundle.mk; sourceTree = "<group>"; };
+		663DA4FB172D29A8002A02A7 /* darwin_hierarchial_bundle.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = darwin_hierarchial_bundle.mk; sourceTree = "<group>"; };
+		663DA4FC172D29A8002A02A7 /* install_deb_local.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = install_deb_local.mk; sourceTree = "<group>"; };
+		663DA4FD172D29A8002A02A7 /* install_deb_remote.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = install_deb_remote.mk; sourceTree = "<group>"; };
+		663DA4FE172D29A8002A02A7 /* linux.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = linux.mk; sourceTree = "<group>"; };
+		663DA500172D29A8002A02A7 /* iphone.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = iphone.mk; sourceTree = "<group>"; };
+		663DA501172D29A8002A02A7 /* macosx.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = macosx.mk; sourceTree = "<group>"; };
+		663DA502172D29A8002A02A7 /* native.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = native.mk; sourceTree = "<group>"; };
+		663DA503172D29A8002A02A7 /* simulator.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = simulator.mk; sourceTree = "<group>"; };
+		663DA505172D29A8002A02A7 /* iphone.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = iphone.mk; sourceTree = "<group>"; };
+		663DA506172D29A8002A02A7 /* native.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = native.mk; sourceTree = "<group>"; };
+		663DA508172D29A8002A02A7 /* iphone.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = iphone.mk; sourceTree = "<group>"; };
+		663DA509172D29A8002A02A7 /* linux.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = linux.mk; sourceTree = "<group>"; };
+		663DA50A172D29A8002A02A7 /* native.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = native.mk; sourceTree = "<group>"; };
+		663DA50B172D29A8002A02A7 /* tool.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = tool.mk; sourceTree = "<group>"; };
+		663DA50C172D29A8002A02A7 /* tweak.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = tweak.mk; sourceTree = "<group>"; };
+		663DA50E172D29A8002A02A7 /* .keep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
+		663DA50F172D29A8002A02A7 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		663DA512172D29A8002A02A7 /* application.nic.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = application.nic.tar; sourceTree = "<group>"; };
+		663DA513172D29A8002A02A7 /* library.nic.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = library.nic.tar; sourceTree = "<group>"; };
+		663DA514172D29A8002A02A7 /* preference_bundle.nic.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = preference_bundle.nic.tar; sourceTree = "<group>"; };
+		663DA515172D29A8002A02A7 /* tool.nic.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = tool.nic.tar; sourceTree = "<group>"; };
+		663DA516172D29A8002A02A7 /* tweak.nic.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = tweak.nic.tar; sourceTree = "<group>"; };
+		663DA517172D29A8002A02A7 /* Tweak.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tweak.xm; sourceTree = "<group>"; };
+		663DA518172D29B7002A02A7 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		663DA519172D29D6002A02A7 /* MessageBox_Facebook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = MessageBox_Facebook.plist; sourceTree = "<group>"; };
+		663DA51A172D29D6002A02A7 /* MessageBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageBox.h; sourceTree = "<group>"; };
+		663DA51B172D29D6002A02A7 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = MessageBox.plist; sourceTree = "<group>"; };
 		6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox_Facebook.h; sourceTree = "<group>"; };
 		6674B29E17287D8600095CDE /* ABMessageBox_Facebook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ABMessageBox_Facebook.mm; sourceTree = "<group>"; };
 		6674B2A317287E0800095CDE /* ABMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox.h; sourceTree = "<group>"; };
@@ -91,6 +236,478 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		663DA462172D2976002A02A7 /* theos */ = {
+			isa = PBXGroup;
+			children = (
+				663DA519172D29D6002A02A7 /* MessageBox_Facebook.plist */,
+				663DA51A172D29D6002A02A7 /* MessageBox.h */,
+				663DA51B172D29D6002A02A7 /* MessageBox.plist */,
+				663DA518172D29B7002A02A7 /* control */,
+				663DA463172D29A8002A02A7 /* Resources */,
+				663DA467172D29A8002A02A7 /* theos */,
+				663DA517172D29A8002A02A7 /* Tweak.xm */,
+			);
+			name = theos;
+			sourceTree = "<group>";
+		};
+		663DA463172D29A8002A02A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				663DA464172D29A8002A02A7 /* MessageBox.plist */,
+				663DA465172D29A8002A02A7 /* MessageBoxIcon.png */,
+				663DA466172D29A8002A02A7 /* MessageBoxIcon@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		663DA467172D29A8002A02A7 /* theos */ = {
+			isa = PBXGroup;
+			children = (
+				663DA468172D29A8002A02A7 /* .bootstrap */,
+				663DA469172D29A8002A02A7 /* bin */,
+				663DA4B8172D29A8002A02A7 /* documentation */,
+				663DA4BB172D29A8002A02A7 /* extras */,
+				663DA4C4172D29A8002A02A7 /* include */,
+				663DA4CA172D29A8002A02A7 /* lib */,
+				663DA4CD172D29A8002A02A7 /* LICENSE */,
+				663DA4CE172D29A8002A02A7 /* makefiles */,
+				663DA50D172D29A8002A02A7 /* mod */,
+				663DA50F172D29A8002A02A7 /* Prefix.pch */,
+				663DA510172D29A8002A02A7 /* templates */,
+			);
+			path = theos;
+			sourceTree = "<group>";
+		};
+		663DA469172D29A8002A02A7 /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				663DA46A172D29A8002A02A7 /* bootstrap.sh */,
+				663DA46B172D29A8002A02A7 /* deb_build_num.sh */,
+				663DA46C172D29A8002A02A7 /* denicify.pl */,
+				663DA46D172D29A8002A02A7 /* fakeroot.sh */,
+				663DA46E172D29A8002A02A7 /* install.copyFile */,
+				663DA46F172D29A8002A02A7 /* install.exec */,
+				663DA470172D29A8002A02A7 /* install.mergeDir */,
+				663DA471172D29A8002A02A7 /* lib */,
+				663DA4B1172D29A8002A02A7 /* logify.pl */,
+				663DA4B2172D29A8002A02A7 /* logos.pl */,
+				663DA4B3172D29A8002A02A7 /* nic.pl */,
+				663DA4B4172D29A8002A02A7 /* nicify.pl */,
+				663DA4B5172D29A8002A02A7 /* package_version.sh */,
+				663DA4B6172D29A8002A02A7 /* target.pl */,
+				663DA4B7172D29A8002A02A7 /* vercmp.pl */,
+			);
+			path = bin;
+			sourceTree = "<group>";
+		};
+		663DA471172D29A8002A02A7 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				663DA472172D29A8002A02A7 /* aliased.pm */,
+				663DA473172D29A8002A02A7 /* Logos */,
+				663DA493172D29A8002A02A7 /* NIC */,
+				663DA4B0172D29A8002A02A7 /* parent.pm */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		663DA473172D29A8002A02A7 /* Logos */ = {
+			isa = PBXGroup;
+			children = (
+				663DA474172D29A8002A02A7 /* Class.pm */,
+				663DA475172D29A8002A02A7 /* Generator */,
+				663DA488172D29A8002A02A7 /* Generator.pm */,
+				663DA489172D29A8002A02A7 /* Group.pm */,
+				663DA48A172D29A8002A02A7 /* Ivar.pm */,
+				663DA48B172D29A8002A02A7 /* Method.pm */,
+				663DA48C172D29A8002A02A7 /* Patch */,
+				663DA48F172D29A8002A02A7 /* Patch.pm */,
+				663DA490172D29A8002A02A7 /* StaticClassGroup.pm */,
+				663DA491172D29A8002A02A7 /* Subclass.pm */,
+				663DA492172D29A8002A02A7 /* Util.pm */,
+			);
+			path = Logos;
+			sourceTree = "<group>";
+		};
+		663DA475172D29A8002A02A7 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				663DA476172D29A8002A02A7 /* Base */,
+				663DA47D172D29A8002A02A7 /* internal */,
+				663DA482172D29A8002A02A7 /* MobileSubstrate */,
+				663DA487172D29A8002A02A7 /* Thunk.pm */,
+			);
+			path = Generator;
+			sourceTree = "<group>";
+		};
+		663DA476172D29A8002A02A7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				663DA477172D29A8002A02A7 /* Class.pm */,
+				663DA478172D29A8002A02A7 /* Generator.pm */,
+				663DA479172D29A8002A02A7 /* Group.pm */,
+				663DA47A172D29A8002A02A7 /* Method.pm */,
+				663DA47B172D29A8002A02A7 /* StaticClassGroup.pm */,
+				663DA47C172D29A8002A02A7 /* Subclass.pm */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		663DA47D172D29A8002A02A7 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				663DA47E172D29A8002A02A7 /* Class.pm */,
+				663DA47F172D29A8002A02A7 /* Generator.pm */,
+				663DA480172D29A8002A02A7 /* Method.pm */,
+				663DA481172D29A8002A02A7 /* Subclass.pm */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		663DA482172D29A8002A02A7 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				663DA483172D29A8002A02A7 /* Class.pm */,
+				663DA484172D29A8002A02A7 /* Generator.pm */,
+				663DA485172D29A8002A02A7 /* Method.pm */,
+				663DA486172D29A8002A02A7 /* Subclass.pm */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		663DA48C172D29A8002A02A7 /* Patch */ = {
+			isa = PBXGroup;
+			children = (
+				663DA48D172D29A8002A02A7 /* Source */,
+			);
+			path = Patch;
+			sourceTree = "<group>";
+		};
+		663DA48D172D29A8002A02A7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				663DA48E172D29A8002A02A7 /* Generator.pm */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		663DA493172D29A8002A02A7 /* NIC */ = {
+			isa = PBXGroup;
+			children = (
+				663DA494172D29A8002A02A7 /* Bridge */,
+				663DA49F172D29A8002A02A7 /* Formats */,
+				663DA4A7172D29A8002A02A7 /* NICBase */,
+				663DA4AB172D29A8002A02A7 /* NICBase.pm */,
+				663DA4AC172D29A8002A02A7 /* NICType.pm */,
+				663DA4AD172D29A8002A02A7 /* Tie */,
+			);
+			path = NIC;
+			sourceTree = "<group>";
+		};
+		663DA494172D29A8002A02A7 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				663DA495172D29A8002A02A7 /* _BridgedObject.pm */,
+				663DA496172D29A8002A02A7 /* _Undefined.pm */,
+				663DA497172D29A8002A02A7 /* Context.pm */,
+				663DA498172D29A8002A02A7 /* Directory.pm */,
+				663DA499172D29A8002A02A7 /* File.pm */,
+				663DA49A172D29A8002A02A7 /* NICBase.pm */,
+				663DA49B172D29A8002A02A7 /* NICType.pm */,
+				663DA49C172D29A8002A02A7 /* Symlink.pm */,
+				663DA49D172D29A8002A02A7 /* Tie */,
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+		663DA49D172D29A8002A02A7 /* Tie */ = {
+			isa = PBXGroup;
+			children = (
+				663DA49E172D29A8002A02A7 /* WrappedMethod.pm */,
+			);
+			path = Tie;
+			sourceTree = "<group>";
+		};
+		663DA49F172D29A8002A02A7 /* Formats */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4A0172D29A8002A02A7 /* NIC1.pm */,
+				663DA4A1172D29A8002A02A7 /* NICTar */,
+				663DA4A6172D29A8002A02A7 /* NICTar.pm */,
+			);
+			path = Formats;
+			sourceTree = "<group>";
+		};
+		663DA4A1172D29A8002A02A7 /* NICTar */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4A2172D29A8002A02A7 /* _TarMixin.pm */,
+				663DA4A3172D29A8002A02A7 /* Directory.pm */,
+				663DA4A4172D29A8002A02A7 /* File.pm */,
+				663DA4A5172D29A8002A02A7 /* Symlink.pm */,
+			);
+			path = NICTar;
+			sourceTree = "<group>";
+		};
+		663DA4A7172D29A8002A02A7 /* NICBase */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4A8172D29A8002A02A7 /* Directory.pm */,
+				663DA4A9172D29A8002A02A7 /* File.pm */,
+				663DA4AA172D29A8002A02A7 /* Symlink.pm */,
+			);
+			path = NICBase;
+			sourceTree = "<group>";
+		};
+		663DA4AD172D29A8002A02A7 /* Tie */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4AE172D29A8002A02A7 /* Method.pm */,
+				663DA4AF172D29A8002A02A7 /* PrefixedHandleRedirect.pm */,
+			);
+			path = Tie;
+			sourceTree = "<group>";
+		};
+		663DA4B8172D29A8002A02A7 /* documentation */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4B9172D29A8002A02A7 /* Makefile */,
+				663DA4BA172D29A8002A02A7 /* makefiles.docbook */,
+			);
+			path = documentation;
+			sourceTree = "<group>";
+		};
+		663DA4BB172D29A8002A02A7 /* extras */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4BC172D29A8002A02A7 /* vim */,
+			);
+			path = extras;
+			sourceTree = "<group>";
+		};
+		663DA4BC172D29A8002A02A7 /* vim */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4BD172D29A8002A02A7 /* ftplugin */,
+				663DA4BF172D29A8002A02A7 /* indent */,
+				663DA4C1172D29A8002A02A7 /* README */,
+				663DA4C2172D29A8002A02A7 /* syntax */,
+			);
+			path = vim;
+			sourceTree = "<group>";
+		};
+		663DA4BD172D29A8002A02A7 /* ftplugin */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4BE172D29A8002A02A7 /* logos.vim */,
+			);
+			path = ftplugin;
+			sourceTree = "<group>";
+		};
+		663DA4BF172D29A8002A02A7 /* indent */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4C0172D29A8002A02A7 /* logos.vim */,
+			);
+			path = indent;
+			sourceTree = "<group>";
+		};
+		663DA4C2172D29A8002A02A7 /* syntax */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4C3172D29A8002A02A7 /* logos.vim */,
+			);
+			path = syntax;
+			sourceTree = "<group>";
+		};
+		663DA4C4172D29A8002A02A7 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4C5172D29A8002A02A7 /* DHCommon.h */,
+				663DA4C6172D29A8002A02A7 /* DHHookCommon.h */,
+				663DA4C7172D29A8002A02A7 /* logos */,
+				663DA4C9172D29A8002A02A7 /* substrate.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		663DA4C7172D29A8002A02A7 /* logos */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4C8172D29A8002A02A7 /* logos.h */,
+			);
+			path = logos;
+			sourceTree = "<group>";
+		};
+		663DA4CA172D29A8002A02A7 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4CB172D29A8002A02A7 /* .keep */,
+				663DA4CC172D29A8002A02A7 /* libsubstrate.dylib */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		663DA4CE172D29A8002A02A7 /* makefiles */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4CF172D29A8002A02A7 /* aggregate.mk */,
+				663DA4D0172D29A8002A02A7 /* application.mk */,
+				663DA4D1172D29A8002A02A7 /* bundle.mk */,
+				663DA4D2172D29A8002A02A7 /* common.mk */,
+				663DA4D3172D29A8002A02A7 /* framework.mk */,
+				663DA4D4172D29A8002A02A7 /* instance */,
+				663DA4E0172D29A8002A02A7 /* legacy.mk */,
+				663DA4E1172D29A8002A02A7 /* library.mk */,
+				663DA4E2172D29A8002A02A7 /* master */,
+				663DA4ED172D29A8002A02A7 /* messages.mk */,
+				663DA4EE172D29A8002A02A7 /* null.mk */,
+				663DA4EF172D29A8002A02A7 /* package.mk */,
+				663DA4F0172D29A8002A02A7 /* platform */,
+				663DA4F4172D29A8002A02A7 /* rules.mk */,
+				663DA4F5172D29A8002A02A7 /* stage.mk */,
+				663DA4F6172D29A8002A02A7 /* subproject.mk */,
+				663DA4F7172D29A8002A02A7 /* targets */,
+				663DA50B172D29A8002A02A7 /* tool.mk */,
+				663DA50C172D29A8002A02A7 /* tweak.mk */,
+			);
+			path = makefiles;
+			sourceTree = "<group>";
+		};
+		663DA4D4172D29A8002A02A7 /* instance */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4D5172D29A8002A02A7 /* application.mk */,
+				663DA4D6172D29A8002A02A7 /* bundle.mk */,
+				663DA4D7172D29A8002A02A7 /* framework.mk */,
+				663DA4D8172D29A8002A02A7 /* library.mk */,
+				663DA4D9172D29A8002A02A7 /* null.mk */,
+				663DA4DA172D29A8002A02A7 /* rules.mk */,
+				663DA4DB172D29A8002A02A7 /* shared */,
+				663DA4DD172D29A8002A02A7 /* subproject.mk */,
+				663DA4DE172D29A8002A02A7 /* tool.mk */,
+				663DA4DF172D29A8002A02A7 /* tweak.mk */,
+			);
+			path = instance;
+			sourceTree = "<group>";
+		};
+		663DA4DB172D29A8002A02A7 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4DC172D29A8002A02A7 /* bundle.mk */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		663DA4E2172D29A8002A02A7 /* master */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4E3172D29A8002A02A7 /* aggregate.mk */,
+				663DA4E4172D29A8002A02A7 /* application.mk */,
+				663DA4E5172D29A8002A02A7 /* bundle.mk */,
+				663DA4E6172D29A8002A02A7 /* framework.mk */,
+				663DA4E7172D29A8002A02A7 /* library.mk */,
+				663DA4E8172D29A8002A02A7 /* null.mk */,
+				663DA4E9172D29A8002A02A7 /* rules.mk */,
+				663DA4EA172D29A8002A02A7 /* subproject.mk */,
+				663DA4EB172D29A8002A02A7 /* tool.mk */,
+				663DA4EC172D29A8002A02A7 /* tweak.mk */,
+			);
+			path = master;
+			sourceTree = "<group>";
+		};
+		663DA4F0172D29A8002A02A7 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4F1172D29A8002A02A7 /* Darwin-arm.mk */,
+				663DA4F2172D29A8002A02A7 /* Darwin.mk */,
+				663DA4F3172D29A8002A02A7 /* Linux.mk */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		663DA4F7172D29A8002A02A7 /* targets */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4F8172D29A8002A02A7 /* _common */,
+				663DA4FF172D29A8002A02A7 /* Darwin */,
+				663DA504172D29A8002A02A7 /* Darwin-arm */,
+				663DA507172D29A8002A02A7 /* Linux */,
+			);
+			path = targets;
+			sourceTree = "<group>";
+		};
+		663DA4F8172D29A8002A02A7 /* _common */ = {
+			isa = PBXGroup;
+			children = (
+				663DA4F9172D29A8002A02A7 /* darwin.mk */,
+				663DA4FA172D29A8002A02A7 /* darwin_flat_bundle.mk */,
+				663DA4FB172D29A8002A02A7 /* darwin_hierarchial_bundle.mk */,
+				663DA4FC172D29A8002A02A7 /* install_deb_local.mk */,
+				663DA4FD172D29A8002A02A7 /* install_deb_remote.mk */,
+				663DA4FE172D29A8002A02A7 /* linux.mk */,
+			);
+			path = _common;
+			sourceTree = "<group>";
+		};
+		663DA4FF172D29A8002A02A7 /* Darwin */ = {
+			isa = PBXGroup;
+			children = (
+				663DA500172D29A8002A02A7 /* iphone.mk */,
+				663DA501172D29A8002A02A7 /* macosx.mk */,
+				663DA502172D29A8002A02A7 /* native.mk */,
+				663DA503172D29A8002A02A7 /* simulator.mk */,
+			);
+			path = Darwin;
+			sourceTree = "<group>";
+		};
+		663DA504172D29A8002A02A7 /* Darwin-arm */ = {
+			isa = PBXGroup;
+			children = (
+				663DA505172D29A8002A02A7 /* iphone.mk */,
+				663DA506172D29A8002A02A7 /* native.mk */,
+			);
+			path = "Darwin-arm";
+			sourceTree = "<group>";
+		};
+		663DA507172D29A8002A02A7 /* Linux */ = {
+			isa = PBXGroup;
+			children = (
+				663DA508172D29A8002A02A7 /* iphone.mk */,
+				663DA509172D29A8002A02A7 /* linux.mk */,
+				663DA50A172D29A8002A02A7 /* native.mk */,
+			);
+			path = Linux;
+			sourceTree = "<group>";
+		};
+		663DA50D172D29A8002A02A7 /* mod */ = {
+			isa = PBXGroup;
+			children = (
+				663DA50E172D29A8002A02A7 /* .keep */,
+			);
+			path = mod;
+			sourceTree = "<group>";
+		};
+		663DA510172D29A8002A02A7 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				663DA511172D29A8002A02A7 /* iphone */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
+		663DA511172D29A8002A02A7 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				663DA512172D29A8002A02A7 /* application.nic.tar */,
+				663DA513172D29A8002A02A7 /* library.nic.tar */,
+				663DA514172D29A8002A02A7 /* preference_bundle.nic.tar */,
+				663DA515172D29A8002A02A7 /* tool.nic.tar */,
+				663DA516172D29A8002A02A7 /* tweak.nic.tar */,
+			);
+			path = iphone;
+			sourceTree = "<group>";
+		};
 		66914D46171A5E0E00041ED5 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +742,7 @@
 		66914D55171A5E0E00041ED5 /* MessageBox */ = {
 			isa = PBXGroup;
 			children = (
+				663DA462172D2976002A02A7 /* theos */,
 				6674B2A317287E0800095CDE /* ABMessageBox.h */,
 				66914D63171A5E0E00041ED5 /* ABMessageBox.mm */,
 				6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */,
@@ -325,7 +943,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp\n\nif [ \"$iOSOpenDevInstallOnAnyBuild\" == \"NO\" ]; then\n    scp -P 2222 ${PROJECT_DIR}/Packages/ca.adambell.MessageBox*.deb root@localhost:~/\n    ssh -p 2222 root@localhost \"dpkg -i ca.adambell.MessageBox*.deb\"\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox_Facebook.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    ssh -p 2222 root@localhost \"killall SpringBoard && killall backboardd\"\nfi";
+			shellScript = "export iOSOpenDevDevice=10.0.1.5\n/opt/iOSOpenDev/bin/iosod --xcbp\n\nif [ \"$iOSOpenDevInstallOnAnyBuild\" == \"NO\" ]; then\n    scp -P 2222 ${PROJECT_DIR}/Packages/ca.adambell.MessageBox*.deb root@localhost:~/\n    ssh -p 2222 root@localhost \"dpkg -i ca.adambell.MessageBox*.deb\"\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox_Facebook.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    ssh -p 2222 root@localhost \"killall SpringBoard && killall backboardd\"\nfi";
 		};
 		66D26FBE172888B000767DD4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

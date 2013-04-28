@@ -18,6 +18,7 @@ CHDeclareClass(UIWindow);
 CHDeclareClass(UITextEffectsWindow);
 CHDeclareClass(SBUIController);
 CHDeclareClass(UIViewController);
+CHDeclareClass(SBBulletinBannerView);
 
 static BKSProcessAssertion *keepAlive;
 
@@ -166,7 +167,7 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
                          fbView.alpha = 1.0;
                      } completion:^(BOOL finished) {
                          //
-                     }];    
+                     }];
 }
 
 CHOptimizedMethod0(self, void, UIWindow, makeKeyAndVisible)
@@ -209,6 +210,25 @@ CHOptimizedMethod4(self, void, UIViewController, _willRotateToInterfaceOrientati
     DebugLog(@"ROTATING");
     
     forceFacebookApplicationRotation(orientation);
+}
+
+CHOptimizedMethod1(self, SBBulletinBannerView *, SBBulletinBannerView, initWithItem, SBBulletinBannerItem *, item)
+{
+    SBBulletinBannerView *hax = CHSuper1(SBBulletinBannerView, initWithItem, item);
+    
+    DebugLog(@"Banner Icoming!");
+    DebugLog(@"Title: %@\nMessage: %@\nApp Name: %@", [item title], [item message], [item _appName]);
+    
+    if ([[item _appName] isEqualToString:@"Facebook"] || [[item _appName] isEqualToString:@"Messenger"])
+    {
+        if ([keepAlive valid])
+        {
+            notify_post(PUSH_NOTIFICATION_RECEIVED);
+            return nil;
+        }
+    }
+    
+    return hax;
 }
 
 static void fbLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
@@ -272,6 +292,7 @@ CHConstructor
         CHLoadLateClass(UIWindow);
         CHLoadLateClass(UITextEffectsWindow);
         CHLoadLateClass(UIViewController);
+        CHLoadLateClass(SBBulletinBannerView);
         
         if ([[[NSBundle mainBundle] bundleIdentifier] isEqualToString:@"com.apple.MobileSMS"])
         {
@@ -281,7 +302,7 @@ CHConstructor
             CHHook1(UITextEffectsWindow, setWindowLevel);
         }
         
-        CHHook4(UIViewController, _willRotateToInterfaceOrientation, duration, forwardToChildControllers, skipSelf);        
+        CHHook4(UIViewController, _willRotateToInterfaceOrientation, duration, forwardToChildControllers, skipSelf);
         
         if ([[[NSBundle mainBundle] bundleIdentifier] isEqualToString:@"com.apple.springboard"])
         {
@@ -296,6 +317,7 @@ CHConstructor
             CHHook0(UIWindow, makeKeyAndVisible);
             CHHook0(SBUIController, finishedUnscattering);
             CHHook3(SBUIController, window, willRotateToInterfaceOrientation, duration);
+            CHHook1(SBBulletinBannerView, initWithItem);
         }
         
         // Need to go lower to hook backboardd stuff
