@@ -18,8 +18,11 @@ CHDeclareClass(UIViewController);
 CHDeclareClass(FBChatHeadViewController);
 CHDeclareClass(FBMThreadDetailContactHeaderView);
 CHDeclareClass(AppDelegate);
+CHDeclareClass(UIApplication);
 CHDeclareClass(UIWindow);
 CHDeclareClass(UITextEffectsWindow);
+CHDeclareClass(MessageCell);
+CHDeclareClass(FBTabBar);
 
 @class FBChatHeadView;
 
@@ -28,7 +31,9 @@ static UIView *fbSplitView;
 static FBChatHeadSurfaceView *fbChatView;
 static FBDimmingView *fbDimmingView;
 static FBChatHeadViewController *fbChatHeadViewController;
+static FBTabBar *fbTabBar;
 static NSTimeInterval refreshInterval = 15;
+static BOOL usePushNotifications = YES;
 static NSTimer *refreshTimer = nil;
 
 @implementation ABMessageBox_Facebook
@@ -62,17 +67,6 @@ static NSTimer *refreshTimer = nil;
 
 @end
 
-CHOptimizedMethod1(self, void, AppDelegate, applicationDidBecomeActive, UIApplication *, app)
-{
-    DebugLog(@"FACEBOOK DID BECOME ACTIVE");
-    
-    //Convenience hack
-    
-    [[[UIApplication sharedApplication] delegate] applicationWillEnterForeground:app];
-    
-    CHSuper1(AppDelegate, applicationDidBecomeActive, app);
-}
-
 // Needed hack because 3.5" devices
 
 CHDeclareMethod0(void, FBChatHeadViewController, dismissPopoverInstantly)
@@ -80,18 +74,11 @@ CHDeclareMethod0(void, FBChatHeadViewController, dismissPopoverInstantly)
     [fbChatHeadViewController dismissPopoverAnimated:NO];
 }
 
-CHOptimizedMethod1(self, void, AppDelegate, applicationDidEnterBackground, UIApplication *, app)
-{
-    notify_post("ca.adambell.MessageBox.fbQuitting");
-    
-    DebugLog(@"FACEBOOK RESIGNING ACTIVE");
+//Convenience functions to show and hide chat heads (with and without animation)
 
-    [UIWindow setAllWindowsKeepContextInBackground:YES];
-    
-    // Nicer way to get the chat heads out of the app
-    // Throw them offscreen, and bring them back when the app is suspended
-    
-    if (fbChatView.chatHeadViews != nil && fbChatView.chatHeadViews.count > 0)
+static void ThrowChatHeadsOffscreen(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    if (fbChatView.chatHeadViews.count > 0)
     {
         FBChatHeadView *firstChatHeadView = fbChatView.chatHeadViews[0];
         CGPoint newPoint = [fbChatView nearestMagnetLocationForPoint:firstChatHeadView.frame.origin];
@@ -103,39 +90,72 @@ CHOptimizedMethod1(self, void, AppDelegate, applicationDidEnterBackground, UIApp
         }
     }
     
-    [fbChatView performSelector:@selector(moveChatHeadsToStackedLayout) withObject:nil afterDelay:0.8];
-    [fbChatView performSelector:@selector(moveStackToHomeLocation) withObject:nil afterDelay:0.8];
-    
     [fbChatHeadViewController dismissPopoverAnimated:NO];
     
     // Hack needed for 3.5" devices, no idea why it doesn't actually dismiss the popover sometimes...
     
     [fbChatHeadViewController performSelector:NSSelectorFromString(@"dismissPopoverInstantly") withObject:nil afterDelay:1.0];
-    
-    UIView *mainView = [[[UIApplication sharedApplication] delegate] window].subviews[0];
-    [mainView setBackgroundColor:[UIColor clearColor]];
-    [[[[UIApplication sharedApplication] delegate] window] setBackgroundColor:[UIColor clearColor]];
-    
-    [[[UIApplication sharedApplication] valueForKey:@"_statusBarWindow"] setAlpha:0.0];
-        
-    if (mainView.subviews.count > 1)
-        [mainView.subviews[0] setHidden:YES];
-    if (mainView.subviews.count > 2)
-        [mainView.subviews[2] setHidden:YES];
-    
-    UIView *v = mainView.subviews[0];
-    [v setBackgroundColor:[UIColor clearColor]];
-    
-    fbStackView.hidden = NO;
-    fbSplitView.hidden = NO;
-    
-    fbStackView.backgroundColor = [UIColor clearColor];
-    fbSplitView.backgroundColor = [UIColor clearColor];
-        
-    for (UIView *view in fbSplitView.subviews)
+}
+
+static void PushChatHeadsOnscreen(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    [fbChatView moveChatHeadsToStackedLayout];
+    [fbChatView moveStackToHomeLocation];
+}
+
+static void PushChatHeadsOnscreenInstant(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
+    if (fbChatView.chatHeadViews.count > 0)
     {
-        view.hidden = YES;
+        for (FBChatHeadView *chatHeadView in fbChatView.chatHeadViews)
+        {
+            CGPoint newPoint = [fbChatView pointForChatHeadViewInStackMode:chatHeadView];
+            [chatHeadView setCenter:newPoint];
+        }
     }
+}
+
+CHOptimizedMethod2(self, void, AppDelegate, application, UIApplication *, application, didFinishLaunchingWithOptions, NSDictionary *, options)
+{
+    CHSuper2(AppDelegate, application, application, didFinishLaunchingWithOptions, options);
+    
+    CPDistributedMessagingCenter *center = [CPDistributedMessagingCenter centerNamed:@"com.adambell.MessageBox.FBMessageCenter"];
+    [center runServerOnCurrentThread];
+    [center registerForMessageName:@"DismissChatHeadsIfNeeded" target:self selector:@selector(dismissChatHeadsIfNeeded)];
+}
+
+CHDeclareMethod0(NSDictionary *, AppDelegate, dismissChatHeadsIfNeeded) {
+    
+    BOOL wasNeeded = NO;
+    
+    //layoutMode: 0 = chat heads closed, 1 = chat heads open
+    if (fbChatView.layoutMode == 1) {
+        [fbChatView tappedCaptureView:nil];
+        wasNeeded = YES;
+    }
+    
+    return @{@"DismissWasNeeded": @(wasNeeded)};
+}
+
+CHOptimizedMethod1(self, void, AppDelegate, applicationDidEnterBackground, UIApplication *, app)
+{
+    notify_post("ca.adambell.MessageBox.fbQuitting");
+    
+    DebugLog(@"FACEBOOK ENTERED BACKGROUND");
+    
+    [UIWindow setAllWindowsKeepContextInBackground:YES];
+    
+    // Nicer way to get the chat heads out of the app
+    // Throw them offscreen, and bring them back when the app is suspended
+    
+    ThrowChatHeadsOffscreen(nil, nil, nil, nil, nil);
+    
+    double delayInSeconds = 0.8;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        PushChatHeadsOnscreen(nil, nil, nil, nil, nil);
+    });
+    
+    [self setChatHeadsAreIsolated:YES];
     
     CHSuper1(AppDelegate, applicationDidEnterBackground, app);
 }
@@ -146,31 +166,73 @@ CHOptimizedMethod1(self, void, AppDelegate, applicationWillEnterForeground, UIAp
     
     DebugLog(@"FACEBOOK BECOMING ACTIVE");
     
+    [self setChatHeadsAreIsolated:NO];
+    
+    CHSuper1(AppDelegate, applicationWillEnterForeground, app);
+}
+
+static BOOL chatHeadsAreIsolated = NO;
+CHDeclareMethod1(void, AppDelegate, setChatHeadsAreIsolated, BOOL, isolated) {
+    
+    if (isolated == chatHeadsAreIsolated)
+        return;
+    
+    chatHeadsAreIsolated = isolated;
+    
     UIView *mainView = [[[UIApplication sharedApplication] delegate] window].subviews[0];
     [mainView setBackgroundColor:[UIColor clearColor]];
     
     [[[[UIApplication sharedApplication] delegate] window] setBackgroundColor:[UIColor clearColor]];
-    [[[UIApplication sharedApplication] valueForKey:@"_statusBarWindow"] setAlpha:1.0];
+    [[[UIApplication sharedApplication] valueForKey:@"_statusBarWindow"] setAlpha:(chatHeadsAreIsolated ? 0.0f : 1.0f)];
     
     if (mainView.subviews.count > 1)
-        [mainView.subviews[0] setHidden:NO];
+        [mainView.subviews[0] setHidden:chatHeadsAreIsolated];
     if (mainView.subviews.count > 2)
-        [mainView.subviews[2] setHidden:NO];
+        [mainView.subviews[2] setHidden:chatHeadsAreIsolated];
     UIView *v = mainView.subviews[0];
     [v setBackgroundColor:[UIColor clearColor]];
     
     fbStackView.hidden = NO;
     fbSplitView.hidden = NO;
     
+    if (fbTabBar)
+        fbTabBar.hidden = chatHeadsAreIsolated;
+    
     fbStackView.backgroundColor = [UIColor clearColor];
     fbSplitView.backgroundColor = [UIColor clearColor];
     
     for (UIView *view in fbSplitView.subviews)
     {
-        view.hidden = NO;
+        view.hidden = chatHeadsAreIsolated;
     }
+}
+
+CHOptimizedMethod1(self, void, UIApplication, _saveSnapshotWithName, NSString *, name) {
     
-    CHSuper1(AppDelegate, applicationWillEnterForeground, app);
+    if (chatHeadsAreIsolated == NO)
+        return CHSuper1(UIApplication, _saveSnapshotWithName, name);
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    [delegate setChatHeadsAreIsolated:NO];
+    CHSuper1(UIApplication, _saveSnapshotWithName, name);
+    [delegate setChatHeadsAreIsolated:YES];
+}
+
+// Open links in Safari, instead of the Facebook application if Chat Heads are outside the application
+
+CHOptimizedMethod3(self, void, MessageCell, textView, id, view, linkTapped, id, tapped, text, id, text)
+{
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+    {
+        CHSuper3(MessageCell, textView, view, linkTapped, tapped, text, text);
+    }
+    else
+    {
+        [fbChatHeadViewController dismissPopoverAnimated:YES];
+        CPDistributedMessagingCenter *center = [CPDistributedMessagingCenter centerNamed:@"com.adambell.MessageBox.SBMessageCenter"];
+        [center sendMessageName:@"openURL" userInfo:@{@"url": text}];
+    }
 }
 
 // Easiest way to hide/restore these later on by grabbing their ivars
@@ -208,6 +270,17 @@ CHOptimizedMethod1(self, id, FBDimmingView, initWithFrame, CGRect, frame)
     
     id hax = CHSuper1(FBDimmingView, initWithFrame, frame);
     fbDimmingView = hax;
+    return hax;
+}
+
+// For users with the tab bar a/b testing
+
+CHOptimizedMethod1(self, id, FBTabBar, initWithFrame, CGRect, frame)
+{
+    DebugLog(@"GOT TAB BAR");
+    
+    id hax = CHSuper1(FBTabBar, initWithFrame, frame);
+    fbTabBar = hax;
     return hax;
 }
 
@@ -252,13 +325,16 @@ CHOptimizedMethod1(self, id, SPFilterBarView, initWithFrame, CGRect, frame)
 CHDeclareMethod0(void, FBChatHeadViewController, createRefreshTimer)
 {
     [self performSelector:@selector(stopRefreshTimer)];
-    /*refreshTimer = [NSTimer scheduledTimerWithTimeInterval:refreshInterval
-                                                    target:self
-                                                  selector:@selector(enteredForeground)
-                                                  userInfo:nil
-                                                   repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:refreshTimer
-                                 forMode:NSDefaultRunLoopMode];*/
+    if (refreshInterval < 0)
+    {
+        refreshTimer = [NSTimer scheduledTimerWithTimeInterval:refreshInterval
+                                                        target:self
+                                                      selector:@selector(enteredForeground)
+                                                      userInfo:nil
+                                                       repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:refreshTimer
+                                     forMode:NSDefaultRunLoopMode];
+    }
 }
 
 CHDeclareMethod0(void, FBChatHeadViewController, stopRefreshTimer)
@@ -277,7 +353,7 @@ CHDeclareMethod1(void, FBChatHeadViewController, forceRotationToInterfaceOrienta
     // Popover blows up when rotated
     
     [fbChatHeadViewController dismissPopoverAnimated:NO];
-        
+    
     [[UIApplication sharedApplication] setStatusBarOrientation:orientation];
     
     for (UIWindow *window in [[UIApplication sharedApplication] windows])
@@ -291,19 +367,19 @@ CHDeclareMethod1(void, FBChatHeadViewController, forceRotationToInterfaceOrienta
      Some crazy UIKeyboard hacks because for some reason UIKeyboard has a seizure when a suspended app tries to rotate...
      
      if orientation == 1
-        revert to identity matrix
+     revert to identity matrix
      if orientation == 2
-        flip keyboard PI
+     flip keyboard PI
      if orientation == 3
-        flip keyboard PI/2 RAD
-        set frame & bounds to screen size
+     flip keyboard PI/2 RAD
+     set frame & bounds to screen size
      if orientation == 4
-        flip keyboard -PI/2 RAD
-        set frame & bounds to screen size
+     flip keyboard -PI/2 RAD
+     set frame & bounds to screen size
      */
     
     UITextEffectsWindow *keyboardWindow = [UITextEffectsWindow sharedTextEffectsWindow];
-
+    
     switch (orientation)
     {
             
@@ -346,7 +422,6 @@ CHOptimizedMethod4(self, id, FBChatHeadViewController, initWithThreadViewControl
 {
     id hax = CHSuper4(FBChatHeadViewController, initWithThreadViewControllerProvider, threadViewControllerProvider, surfaceViewProvider, provider, threadListControllerProvider, provider3, navigator, navigator);
     fbChatHeadViewController = hax;
-    
     [self performSelector:@selector(createRefreshTimer) withObject:nil afterDelay:30];
     return hax;
 }
@@ -381,6 +456,14 @@ CHOptimizedMethod0(self, void, UIWindow, makeKeyAndVisible)
     [UIWindow setAllWindowsKeepContextInBackground:YES];
 }
 
+// Tell SpringBoard when we tap a chat head
+
+CHOptimizedMethod1(self, void, FBChatHeadSurfaceView, didTapChatHead, id, chatHead)
+{
+    CHSuper1(FBChatHeadSurfaceView, didTapChatHead, chatHead);
+    notify_post("ca.adambell.MessageBox-didTapChatHeadNotification");
+}
+
 static void fbShouldRotate(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
     UIInterfaceOrientation newOrientation = UIInterfaceOrientationPortrait;
@@ -413,7 +496,16 @@ static void messageBoxPrefsChanged(CFNotificationCenterRef center, void *observe
     NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/User/Library/Preferences/ca.adambell.MessageBox.plist"];
     
     if (prefs != nil && prefs[@"refreshInterval"])
+    {
         refreshInterval = [prefs[@"refreshInterval"] doubleValue];
+    }
+    
+    if (prefs != nil && prefs[@"refreshInterval"])
+    {
+        usePushNotifications = [prefs[@"pushNotificationsEnabled"] boolValue];
+    }
+    
+    refreshInterval *= usePushNotifications ? -1 : 1;
 
     DebugLog(@"PREFERENCES LOADED: %f, %@", refreshInterval, prefs);
     
@@ -432,7 +524,7 @@ CHConstructor
         if (![[[NSBundle mainBundle] bundleIdentifier] isEqualToString:@"com.facebook.Facebook"])
             return;
         
-        // <3 system wide notifications 
+        // <3 system wide notifications
         CFNotificationCenterRef darwin = CFNotificationCenterGetDarwinNotifyCenter();
         CFNotificationCenterAddObserver(darwin, NULL, fbShouldRotate, CFSTR(ROTATION_PORTRAIT_NOTIFICATION), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, fbShouldRotate, CFSTR(ROTATION_PORTRAIT_UPSIDEDOWN_NOTIFICATION), NULL, CFNotificationSuspensionBehaviorCoalesce);
@@ -440,6 +532,9 @@ CHConstructor
         CFNotificationCenterAddObserver(darwin, NULL, fbShouldRotate, CFSTR(ROTATION_LANDSCAPE_RIGHT_NOTIFICATION), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, messageBoxPrefsChanged, CFSTR("ca.adambell.MessageBox-preferencesChanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, fbChatNotificationReceived, CFSTR(PUSH_NOTIFICATION_RECEIVED), NULL, CFNotificationSuspensionBehaviorCoalesce);
+        CFNotificationCenterAddObserver(darwin, NULL, ThrowChatHeadsOffscreen, CFSTR("ca.adambell.MessageBox-throwChatHeadsOffscreen"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+        CFNotificationCenterAddObserver(darwin, NULL, PushChatHeadsOnscreen, CFSTR("ca.adambell.MessageBox-pushChatHeadsOnscreen"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+        CFNotificationCenterAddObserver(darwin, NULL, PushChatHeadsOnscreenInstant, CFSTR("ca.adambell.MessageBox-pushChatHeadsOnscreenInstant"), NULL, CFNotificationSuspensionBehaviorCoalesce);
         
         // Load preferences
         messageBoxPrefsChanged(nil, nil, nil, nil, nil);
@@ -449,24 +544,31 @@ CHConstructor
         CHLoadLateClass(FBDimmingView);
         CHLoadLateClass(FBChatHeadSurfaceView);
         CHLoadLateClass(AppDelegate);
+        CHLoadLateClass(UIApplication);
         CHLoadLateClass(UIViewController);
         CHLoadLateClass(FBChatHeadViewController);
         CHLoadLateClass(FBMThreadDetailContactHeaderView);
         CHLoadLateClass(SPFilterBarView);
         CHLoadLateClass(FBMediaGalleryBottomBar);
+        CHLoadLateClass(MessageCell);
+        CHLoadLateClass(FBTabBar);
         
         CHHook1(FBStackView, initWithFrame);
         CHHook1(FBCoveringSplitView, initWithFrame);
         CHHook1(FBDimmingView, initWithFrame);
+        CHHook1(FBTabBar, initWithFrame);
         CHHook7(FBChatHeadSurfaceView, initWithFrame, chatHeadProvider, threadUserMap, participantFilter, threadSet, gatingChecker, appProperties);
+        CHHook2(AppDelegate, application, didFinishLaunchingWithOptions);
         CHHook1(AppDelegate, applicationDidEnterBackground);
         CHHook1(AppDelegate, applicationWillEnterForeground);
-        CHHook1(AppDelegate, applicationDidBecomeActive);
+        CHHook1(UIApplication, _saveSnapshotWithName);
         CHHook4(FBChatHeadViewController, initWithThreadViewControllerProvider, surfaceViewProvider, threadListControllerProvider, navigator);
         CHHook3(FBMThreadDetailContactHeaderView, _setCoverPhotoTo, animated, fadeGradient);
         CHHook2(FBMThreadDetailContactHeaderView, _setCoverPhotoToBlurred, animated);
         CHHook1(SPFilterBarView, initWithFrame);
         CHHook1(FBMediaGalleryBottomBar, initWithFrame);
         CHHook0(UIWindow, makeKeyAndVisible);
+        CHHook1(FBChatHeadSurfaceView, didTapChatHead);
+        CHHook3(MessageCell, textView, linkTapped, text);
     }
 }

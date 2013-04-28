@@ -11,6 +11,7 @@
 		66136F00172B3A7A006FEF0E /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 66136EFE172B3A7A006FEF0E /* substrate.h */; };
 		663608B3171D3A4700C8D2C5 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */; };
 		663608B7171EEA4A00C8D2C5 /* BackBoardServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */; };
+		663DA51D172DBF47002A02A7 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 663DA51C172DBF47002A02A7 /* Makefile */; };
 		6674B2A417287E0800095CDE /* ABMessageBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6674B2A317287E0800095CDE /* ABMessageBox.h */; };
 		6674B2A717287E3300095CDE /* ABMessageBoxWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6674B2A517287E3300095CDE /* ABMessageBoxWindow.h */; };
 		6674B2A817287E3300095CDE /* ABMessageBoxWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6674B2A617287E3300095CDE /* ABMessageBoxWindow.mm */; };
@@ -25,6 +26,8 @@
 		66D26FD81728897500767DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E31171A5E3B00041ED5 /* UIKit.framework */; };
 		66D26FD91728897F00767DD4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E33171A5E4800041ED5 /* QuartzCore.framework */; };
 		66D26FDA1728898500767DD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66914E3F171A632700041ED5 /* CoreGraphics.framework */; };
+		6F6556CA172CAB7300DA7115 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6556C9172CAB7300DA7115 /* AppSupport.framework */; };
+		6F6556CB172CAB7700DA7115 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6556C9172CAB7300DA7115 /* AppSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +44,6 @@
 		66136EFE172B3A7A006FEF0E /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
 		663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
 		663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackBoardServices.framework; path = System/Library/PrivateFrameworks/BackBoardServices.framework; sourceTree = SDKROOT; };
-		663DA464172D29A8002A02A7 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MessageBox.plist; sourceTree = "<group>"; };
-		663DA465172D29A8002A02A7 /* MessageBoxIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageBoxIcon.png; sourceTree = "<group>"; };
-		663DA466172D29A8002A02A7 /* MessageBoxIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageBoxIcon@2x.png"; sourceTree = "<group>"; };
 		663DA468172D29A8002A02A7 /* .bootstrap */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bootstrap; sourceTree = "<group>"; };
 		663DA46A172D29A8002A02A7 /* bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap.sh; sourceTree = "<group>"; };
 		663DA46B172D29A8002A02A7 /* deb_build_num.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deb_build_num.sh; sourceTree = "<group>"; };
@@ -186,6 +186,10 @@
 		663DA519172D29D6002A02A7 /* MessageBox_Facebook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = MessageBox_Facebook.plist; sourceTree = "<group>"; };
 		663DA51A172D29D6002A02A7 /* MessageBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageBox.h; sourceTree = "<group>"; };
 		663DA51B172D29D6002A02A7 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = MessageBox.plist; sourceTree = "<group>"; };
+		663DA51C172DBF47002A02A7 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		663DA51E172DBFF3002A02A7 /* README.mdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
+		663DA51F172DD456002A02A7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		663DA520172DD456002A02A7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox_Facebook.h; sourceTree = "<group>"; };
 		6674B29E17287D8600095CDE /* ABMessageBox_Facebook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ABMessageBox_Facebook.mm; sourceTree = "<group>"; };
 		6674B2A317287E0800095CDE /* ABMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox.h; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		66914E3F171A632700041ED5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66D26FC0172888B000767DD4 /* MessageBox_Facebook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MessageBox_Facebook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D26FDB172889B000767DD4 /* MessageBox_Facebook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = MessageBox_Facebook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MessageBox_Facebook.plist; sourceTree = "<group>"; };
+		6F6556C9172CAB7300DA7115 /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppSupport.framework; path = System/Library/PrivateFrameworks/AppSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6556CA172CAB7300DA7115 /* AppSupport.framework in Frameworks */,
 				663608B7171EEA4A00C8D2C5 /* BackBoardServices.framework in Frameworks */,
 				663608B3171D3A4700C8D2C5 /* libsubstrate.dylib in Frameworks */,
 				66914E40171A632700041ED5 /* CoreGraphics.framework in Frameworks */,
@@ -226,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6556CB172CAB7700DA7115 /* AppSupport.framework in Frameworks */,
 				66D26FDA1728898500767DD4 /* CoreGraphics.framework in Frameworks */,
 				66D26FD91728897F00767DD4 /* QuartzCore.framework in Frameworks */,
 				66D26FD81728897500767DD4 /* UIKit.framework in Frameworks */,
@@ -239,25 +246,15 @@
 		663DA462172D2976002A02A7 /* theos */ = {
 			isa = PBXGroup;
 			children = (
-				663DA519172D29D6002A02A7 /* MessageBox_Facebook.plist */,
+				663DA467172D29A8002A02A7 /* theos */,
 				663DA51A172D29D6002A02A7 /* MessageBox.h */,
 				663DA51B172D29D6002A02A7 /* MessageBox.plist */,
+				663DA519172D29D6002A02A7 /* MessageBox_Facebook.plist */,
 				663DA518172D29B7002A02A7 /* control */,
-				663DA463172D29A8002A02A7 /* Resources */,
-				663DA467172D29A8002A02A7 /* theos */,
 				663DA517172D29A8002A02A7 /* Tweak.xm */,
+				663DA51C172DBF47002A02A7 /* Makefile */,
 			);
 			name = theos;
-			sourceTree = "<group>";
-		};
-		663DA463172D29A8002A02A7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				663DA464172D29A8002A02A7 /* MessageBox.plist */,
-				663DA465172D29A8002A02A7 /* MessageBoxIcon.png */,
-				663DA466172D29A8002A02A7 /* MessageBoxIcon@2x.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		663DA467172D29A8002A02A7 /* theos */ = {
@@ -729,6 +726,7 @@
 		66914D52171A5E0E00041ED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F6556C9172CAB7300DA7115 /* AppSupport.framework */,
 				663608B6171EEA4A00C8D2C5 /* BackBoardServices.framework */,
 				663608B2171D3A4700C8D2C5 /* libsubstrate.dylib */,
 				66914E3F171A632700041ED5 /* CoreGraphics.framework */,
@@ -775,9 +773,10 @@
 		66914D5A171A5E0E00041ED5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				663DA51E172DBFF3002A02A7 /* README.mdown */,
 				66136EFE172B3A7A006FEF0E /* substrate.h */,
-				66914D5B171A5E0E00041ED5 /* PackageVersion.plist */,
 				66914D62171A5E0E00041ED5 /* MessageBox-Prefix.pch */,
+				66914D5B171A5E0E00041ED5 /* PackageVersion.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -839,6 +838,8 @@
 		66914E42171A639800041ED5 /* MessageBox */ = {
 			isa = PBXGroup;
 			children = (
+				663DA51F172DD456002A02A7 /* Icon.png */,
+				663DA520172DD456002A02A7 /* Icon@2x.png */,
 			);
 			path = MessageBox;
 			sourceTree = "<group>";
@@ -943,7 +944,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export iOSOpenDevDevice=10.0.1.5\n/opt/iOSOpenDev/bin/iosod --xcbp\n\nif [ \"$iOSOpenDevInstallOnAnyBuild\" == \"NO\" ]; then\n    scp -P 2222 ${PROJECT_DIR}/Packages/ca.adambell.MessageBox*.deb root@localhost:~/\n    ssh -p 2222 root@localhost \"dpkg -i ca.adambell.MessageBox*.deb\"\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    scp -P 2222 ${PROJECT_DIR}/build/Debug-iphoneos/MessageBox_Facebook.dylib root@localhost:/Library/MobileSubstrate/DynamicLibraries/\n    ssh -p 2222 root@localhost \"killall SpringBoard && killall backboardd\"\nfi";
+			shellScript = "export iOSOpenDevDevice=10.0.1.5\n\n/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
 		66D26FBE172888B000767DD4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -956,7 +957,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp\n\ncp ${PROJECT_DIR}/LatestBuild/MessageBox_Facebook.dylib ${PROJECT_DIR}/MessageBox/Package/Library/MobileSubstrate/DynamicLibraries/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -967,6 +968,7 @@
 			files = (
 				66914D64171A5E0E00041ED5 /* ABMessageBox.mm in Sources */,
 				6674B2A817287E3300095CDE /* ABMessageBoxWindow.mm in Sources */,
+				663DA51D172DBF47002A02A7 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,7 +1082,7 @@
 				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
-				iOSOpenDevUsePackageVersionPList = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
 			};
 			name = Debug;
 		};
@@ -1118,7 +1120,7 @@
 				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
-				iOSOpenDevUsePackageVersionPList = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
 			};
 			name = Release;
 		};
@@ -1128,6 +1130,10 @@
 				CODE_SIGN_IDENTITY = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
@@ -1149,6 +1155,10 @@
 				CODE_SIGN_IDENTITY = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessageBox/MessageBox-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;

@@ -33,6 +33,20 @@ typedef NS_ENUM(NSUInteger, BKSProcessAssertionReason)
 };
 
 
+@interface CPDistributedMessagingCenter : NSObject
++ (CPDistributedMessagingCenter *)centerNamed:(NSString *)centerName;
+- (BOOL)doesServerExist;
+- (void)registerForMessageName:(NSString *)messageName target:(id)target selector:(SEL)action;
+- (void)runServerOnCurrentThread;
+- (NSDictionary *)sendMessageAndReceiveReplyName:(NSString *)messageName userInfo:(NSDictionary *)userInfo;
+- (BOOL)sendMessageName:(NSString *)messageName userInfo:(NSDictionary *)userInfo;
+@end
+
+@interface SBIconController : NSObject
++ (id)sharedInstance;
+@property (nonatomic) BOOL isEditing;
+@end
+
 @interface SBApplicationController : NSObject
 -(id)applicationWithDisplayIdentifier:(NSString *)ident;
 +(SBApplicationController *)sharedInstance;
@@ -45,6 +59,11 @@ typedef NS_ENUM(NSUInteger, BKSProcessAssertionReason)
 @interface SBApplication : NSObject
 - (UIView *)contextHostViewForRequester:(NSString *)str enableAndOrderFront:(BOOL)um;
 - (SBAppContextHostManager *)contextHostManager;
+- (NSString *)bundleIdentifier;
+@end
+
+@interface SpringBoard : UIApplication
+- (SBApplication *)_accessibilityFrontMostApplication;
 @end
 
 @interface BKProcessAssertion : NSObject
@@ -92,6 +111,11 @@ typedef NS_ENUM(NSUInteger, BKSProcessAssertionReason)
 @end
 
 @interface SBBulletinBannerView : UIView
+@end
+
+@interface LSApplicationProxy : NSObject
+- (NSDictionary *)entitlements;
+- (NSString *)applicationIdentifier;
 @end
 
 @interface ABMessageBox : NSObject

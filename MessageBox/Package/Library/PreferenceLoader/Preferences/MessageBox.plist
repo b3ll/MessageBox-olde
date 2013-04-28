@@ -23,9 +23,37 @@
 			<key>isStaticText</key>
 			<true/>
 			<key>label</key>
+			<string>Push Notifications</string>
+			<key>footerText</key>
+			<string>If you have Facebook or Facebook Messenger push notifications setup, you can choose to use these instead of the manual refresh. (Recommended)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>ca.adambell.MessageBox</string>
+			<key>label</key>
+			<string>Enabled</string>
+			<key>key</key>
+			<string>pushNotificationsEnabled</string>
+			<key>PostNotification</key>
+			<string>ca.adambell.MessageBox-preferencesChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>label</key>
 			<string>Refresh Interval</string>
 			<key>footerText</key>
-			<string>Higher interval means better battery life, however it will take longer for messages to come in.</string>
+			<string>Higher interval means better battery life, however it will take longer for messages to come in. You can set this interval anywhere between 15 seconds and 3 minutes.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
