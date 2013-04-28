@@ -6,18 +6,20 @@ Set your Facebook Chat Heads free!
 How do I Message Box?
 =============
 
-It's really simple. Simply install the [.deb](https://github.com/b3ll/MessageBox/blob/master/Packages/ca.adambell.MessageBox_1.0-1_iphoneos-arm.deb?raw=true) using any means (ssh, iFile) on any 6.X jailbroken iOS Device. You'll also need to reboot (respringing is not enough as parts of this hook into backboardd, so you could also just kill SpringBoard **AND** backboardd and you should be fine).
+It's really simple. Simply install the [.deb](https://github.com/b3ll/MessageBox/raw/master/Packages/ca.adambell.MessageBox_1.0-2_iphoneos-arm.deb) using any means (ssh, iFile) on any 6.X jailbroken iOS Device. You'll also need to reboot (respringing is not enough as parts of this hook into backboardd, so you could also just kill SpringBoard **AND** backboardd and you should be fine).
 
 After that, simply open the Facebook app, and you'll be able to bring any Chat Heads outside the app when you quit it.
 
-**Note**: Since the Facebook app is also always "suspended", it won't get Chat notifications unless you have a manual refresh. This is configurable in Settings, but keep in mind a shorter refresh interval will affect battery life. 
+**New**: Use of push notifications have made the original method for refreshing deprecated. I did however leave it for people who don't like push notifications.
+<del> Since the Facebook app is also always "suspended", it won't get Chat notifications unless you have a manual refresh. This is configurable in Settings, but keep in mind a shorter refresh interval will affect battery life. </del>
+
 
 How do I compile?
 =============
 
 I used iOSOpenDev + CaptainHook for this. You'll need to install iOSOpenDev and setup the environment variables in the Xcode Project (under Build Settings for the MessageBox target) or play around with the project yourself and set things up to work without iOSOpenDev. You'll also need to [patch](https://github.com/kokoabim/iOSOpenDev/pull/15) your own substrate.h (or use the one I provided) to support ARC.
 
-If anyone wants to setup a theos version of this, that's cool too!
+[@winocm](https://www.twitter.com/winocm) was kind enough to provide a theos build script too.
 
 Price?
 =============
@@ -36,4 +38,9 @@ Contact Info?
 
 If you have any support requests please feel free to email me at messagebox[at]adambell[dot]me.
 
-Otherwise, feel free to follow me on [twitter](http://www.twitter.com/b3ll)!
+Otherwise, feel free to follow me on twitter: [@b3ll](https://www.twitter.com/b3ll)!
+
+Special Thanks
+=============
+
+[@matthewrex](https://www.twitter.com/matthewrex) was kind enough to provide an awesome icon!
