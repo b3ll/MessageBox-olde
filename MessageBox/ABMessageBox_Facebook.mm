@@ -325,7 +325,7 @@ CHOptimizedMethod1(self, id, SPFilterBarView, initWithFrame, CGRect, frame)
 CHDeclareMethod0(void, FBChatHeadViewController, createRefreshTimer)
 {
     [self performSelector:@selector(stopRefreshTimer)];
-    if (refreshInterval < 0)
+    if (refreshInterval > 0)
     {
         refreshTimer = [NSTimer scheduledTimerWithTimeInterval:refreshInterval
                                                         target:self

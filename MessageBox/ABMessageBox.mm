@@ -241,11 +241,20 @@ CHOptimizedMethod1(self, SBBulletinBannerView *, SBBulletinBannerView, initWithI
     DebugLog(@"Banner Icoming!");
     DebugLog(@"Title: %@\nMessage: %@\nApp Name: %@", [item title], [item message], [item _appName]);
     
-    if ([[item _appName] isEqualToString:@"Facebook"] || [[item _appName] isEqualToString:@"Messenger"])
+    if ([[item _appName] isEqualToString:@"Facebook"])
     {
         if ([keepAlive valid])
         {
             notify_post(PUSH_NOTIFICATION_RECEIVED);
+        }
+    }
+    
+    if ([[item _appName] isEqualToString:@"Messenger"])
+    {
+        if ([keepAlive valid])
+        {
+            notify_post(PUSH_NOTIFICATION_RECEIVED);
+            return nil;
         }
     }
     

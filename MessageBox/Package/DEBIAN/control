@@ -1,6 +1,6 @@
 Package: ca.adambell.MessageBox
 Name: Message Box
-Version: 1.0-2
+Version: 1.0-3
 Description: Set your Facebook Chat Heads free!
 Section: Tweaks
 Depends: firmware (>= 6.0), mobilesubstrate
