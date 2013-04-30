@@ -944,7 +944,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export iOSOpenDevDevice=10.0.1.5\n\n/opt/iOSOpenDev/bin/iosod --xcbp";
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
 		66D26FBE172888B000767DD4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

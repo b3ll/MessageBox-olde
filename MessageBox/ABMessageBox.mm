@@ -182,6 +182,8 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
     
     // Show the Chat Heads after the rest of the Facebook app has been hidden / finished animating
     
+    [fbView setNeedsDisplay];
+    
     [UIView animateWithDuration:0.0
                           delay:0.9
                         options:0
@@ -211,9 +213,15 @@ CHOptimizedMethod0(self, void, UIWindow, makeKeyAndVisible)
 
 CHOptimizedMethod0(self, int, UITextEffectsWindow, windowLevel)
 {
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
-        return 9;
-    return CHSuper0(UITextEffectsWindow, windowLevel);
+    int windowLevel = CHSuper0(UITextEffectsWindow, windowLevel);
+
+    
+    // If this returns 9 when the window level is 1148846080 (<-- WHY DO WE NEED SUCH A MASSIVE NUMBER?) the tableviews in Messages don't scroll to top
+    
+    if (windowLevel == 0)
+        windowLevel = 9;
+        
+    return windowLevel;
 }
 
 
@@ -257,7 +265,7 @@ CHOptimizedMethod1(self, SBBulletinBannerView *, SBBulletinBannerView, initWithI
             return nil;
         }
     }
-    
+        
     return hax;
 }
 
