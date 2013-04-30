@@ -187,7 +187,6 @@
 		663DA51A172D29D6002A02A7 /* MessageBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageBox.h; sourceTree = "<group>"; };
 		663DA51B172D29D6002A02A7 /* MessageBox.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = MessageBox.plist; sourceTree = "<group>"; };
 		663DA51C172DBF47002A02A7 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		663DA51E172DBFF3002A02A7 /* README.mdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 		663DA51F172DD456002A02A7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		663DA520172DD456002A02A7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6674B29D17287D8600095CDE /* ABMessageBox_Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMessageBox_Facebook.h; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		66914E3F171A632700041ED5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66D26FC0172888B000767DD4 /* MessageBox_Facebook.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MessageBox_Facebook.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D26FDB172889B000767DD4 /* MessageBox_Facebook.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = MessageBox_Facebook.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MessageBox_Facebook.plist; sourceTree = "<group>"; };
+		66F8A2FF17304D05005EF049 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = SOURCE_ROOT; };
 		6F6556C9172CAB7300DA7115 /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppSupport.framework; path = System/Library/PrivateFrameworks/AppSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -773,7 +773,7 @@
 		66914D5A171A5E0E00041ED5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				663DA51E172DBFF3002A02A7 /* README.mdown */,
+				66F8A2FF17304D05005EF049 /* README.mdown */,
 				66136EFE172B3A7A006FEF0E /* substrate.h */,
 				66914D62171A5E0E00041ED5 /* MessageBox-Prefix.pch */,
 				66914D5B171A5E0E00041ED5 /* PackageVersion.plist */,

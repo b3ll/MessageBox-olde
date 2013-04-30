@@ -108,7 +108,7 @@ static void ThrowChatHeadsOffscreen(CFNotificationCenterRef center, void *observ
     
     // Hack needed for 3.5" devices, no idea why it doesn't actually dismiss the popover sometimes...
     
-    [fbChatHeadViewController performSelector:NSSelectorFromString(@"dismissPopoverInstantly") withObject:nil afterDelay:0.8];
+    [fbChatHeadViewController performSelector:NSSelectorFromString(@"dismissPopoverInstantly") withObject:nil afterDelay:1.1];
 }
 
 static void PushChatHeadsOnscreen(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
