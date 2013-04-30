@@ -85,6 +85,8 @@ CHOptimizedMethod0(self, void, SBUIController, finishedUnscattering)
 {
     CHSuper0(SBUIController, finishedUnscattering);
     
+    notify_post("ca.adambell.MessageBox-pushChatHeadsOnscreen");
+    
     UIInterfaceOrientation orientation = [UIDevice currentDevice].orientation;
     
     forceFacebookApplicationRotation(orientation);
@@ -185,7 +187,7 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
     [fbView setNeedsDisplay];
     
     [UIView animateWithDuration:0.0
-                          delay:0.9
+                          delay:0.6
                         options:0
                      animations:^{
                          fbView.alpha = 1.0;
