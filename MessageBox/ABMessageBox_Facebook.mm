@@ -296,44 +296,6 @@ CHOptimizedMethod1(self, id, FBTabBar, initWithFrame, CGRect, frame)
     return hax;
 }
 
-CHOptimizedMethod1(self, id, FBMediaGalleryBottomBar, initWithFrame, CGRect, frame)
-{
-    DebugLog(@"GOT FBMediaGalleryBottomBar");
-    
-    id hax = CHSuper1(FBMediaGalleryBottomBar, initWithFrame, frame);
-    
-    // Can't allow filters when suspended, because that's GL based :(
-    
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive)
-    {
-        [[hax valueForKey:@"_filterButton"] setHidden:YES];
-        [[hax valueForKey:@"_cropButton"] setHidden:YES];
-        [[hax valueForKey:@"_luxButton"] setHidden:YES];
-    }
-    else
-    {
-        [[hax valueForKey:@"_filterButton"] setHidden:NO];
-        [[hax valueForKey:@"_cropButton"] setHidden:NO];
-        [[hax valueForKey:@"_luxButton"] setHidden:NO];
-    }
-    return hax;
-}
-
-CHOptimizedMethod1(self, id, SPFilterBarView, initWithFrame, CGRect, frame)
-{
-    DebugLog(@"GOT SPFILTERBARVIEW");
-    
-    // OpenGL crashes application if called from suspension
-    
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive)
-    {
-        return nil;
-    }
-    
-    id hax = CHSuper1(SPFilterBarView, initWithFrame, frame);
-    return hax;
-}
-
 CHDeclareMethod0(void, FBChatHeadViewController, createRefreshTimer)
 {
     [self performSelector:@selector(stopRefreshTimer)];
@@ -436,24 +398,6 @@ CHOptimizedMethod4(self, id, FBChatHeadViewController, initWithThreadViewControl
     fbChatHeadViewController = hax;
     [self performSelector:@selector(createRefreshTimer) withObject:nil afterDelay:30];
     return hax;
-}
-
-// Both these methods use OpenGL for the blurred profile picture on the contact page, so disable if the app is suspended
-
-CHOptimizedMethod3(self, void, FBMThreadDetailContactHeaderView, _setCoverPhotoTo, id, to, animated, BOOL, animated, fadeGradient, BOOL, gradient)
-{
-    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-    {
-        CHSuper3(FBMThreadDetailContactHeaderView, _setCoverPhotoTo, to, animated, animated, fadeGradient, gradient);
-    }
-}
-
-CHOptimizedMethod2(self, void, FBMThreadDetailContactHeaderView, _setCoverPhotoToBlurred, id, blurred, animated, BOOL, animated)
-{
-    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-    {
-        CHSuper2(FBMThreadDetailContactHeaderView, _setCoverPhotoToBlurred, blurred, animated, animated);
-    }
 }
 
 
@@ -576,10 +520,6 @@ CHConstructor
         CHHook1(AppDelegate, applicationWillEnterForeground);
         CHHook1(UIApplication, _saveSnapshotWithName);
         CHHook4(FBChatHeadViewController, initWithThreadViewControllerProvider, surfaceViewProvider, threadListControllerProvider, navigator);
-        CHHook3(FBMThreadDetailContactHeaderView, _setCoverPhotoTo, animated, fadeGradient);
-        CHHook2(FBMThreadDetailContactHeaderView, _setCoverPhotoToBlurred, animated);
-        CHHook1(SPFilterBarView, initWithFrame);
-        CHHook1(FBMediaGalleryBottomBar, initWithFrame);
         CHHook0(UIWindow, makeKeyAndVisible);
         CHHook1(FBChatHeadSurfaceView, didTapChatHead);
         CHHook3(MessageCell, textView, linkTapped, text);

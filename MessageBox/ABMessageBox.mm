@@ -10,9 +10,6 @@
 #import "ABMessageBox.h"
 
 #define XPCObjects "/System/Library/PrivateFrameworks/XPCObjects.framework/XPCObjects"
-#define libGPUSupport "/System/Library/PrivateFrameworks/GPUSupport.framework/libGPUSupport.dylib"
-#define libGPUSupportMercury "/System/Library/PrivateFrameworks/GPUSupport.framework/libGPUSupportMercury.dylib"
-#define GPUSupport "/System/Library/PrivateFrameworks/GPUSupport.framework/GPUSupport"
 
 CHDeclareClass(UIWindow);
 CHDeclareClass(UITextEffectsWindow);
@@ -100,7 +97,7 @@ CHOptimizedMethod3(self, void, SBUIController, window, UIWindow *, window, willR
     forceFacebookApplicationRotation(orientation);
 }
 
-CHDeclareMethod0(void, SBUIController, hookFacebook)
+static int PIDForProcessNamed(NSString *passedInProcessName)
 {
     // Thanks to http://stackoverflow.com/questions/6610705/how-to-get-process-id-in-iphone-or-ipad
     // Faster than ps,grep,etc
@@ -126,7 +123,7 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
             if (process){
                 free(process);
             }
-            return;
+            return 0;
         }
         
         process = newprocess;
@@ -145,12 +142,11 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
             {
                 for (int i = nprocess - 1; i >= 0; i--)
                 {
-                    NSString * processID = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_pid];
                     NSString * processName = [[NSString alloc] initWithFormat:@"%s", process[i].kp_proc.p_comm];
                     
-                    if ([processName rangeOfString:@"Facebook"].location != NSNotFound)
+                    if ([processName rangeOfString:passedInProcessName].location != NSNotFound)
                     {
-                        pid = [processID intValue];
+                        pid = process[i].kp_proc.p_pid;
                     }
                 }
                 
@@ -160,14 +156,23 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
     }
     if (pid == 0)
     {
-        DebugLog(@"GET PROCESS FACEBOOK FAILED.");
+        DebugLog(@"GET PROCESS %@ FAILED.", [passedInProcessName uppercaseString]);
     }
     
+    return pid;
+}
+
+CHDeclareMethod0(void, SBUIController, hookFacebook)
+{
+    
+    int facebookPID = PIDForProcessNamed(@"Facebook");
+    if (facebookPID == 0)
+        return;
     
     // Need a BKSProcessAssertion to keep the app from being killed / allow the UI thread to work even when suspended
     
-    keepAlive = [[BKSProcessAssertion alloc] initWithPID:pid
-                                                   flags:1
+    keepAlive = [[BKSProcessAssertion alloc] initWithPID:facebookPID
+                                                   flags:(ProcessAssertionFlagPreventSuspend | ProcessAssertionFlagAllowIdleSleep | ProcessAssertionFlagPreventThrottleDownCPU | ProcessAssertionFlagPreventThrottleDownUI)
                                                   reason:kProcessAssertionReasonBackgroundUI
                                                     name:@"epichax"
                                              withHandler:^void (void)
@@ -248,7 +253,7 @@ CHOptimizedMethod1(self, SBBulletinBannerView *, SBBulletinBannerView, initWithI
 {
     SBBulletinBannerView *hax = CHSuper1(SBBulletinBannerView, initWithItem, item);
     
-    DebugLog(@"Banner Icoming!");
+    DebugLog(@"Banner Incoming!");
     DebugLog(@"Title: %@\nMessage: %@\nApp Name: %@", [item title], [item message], [item _appName]);
     
     if ([[item _appName] isEqualToString:@"Facebook"])
@@ -323,7 +328,7 @@ CHOptimizedMethod0(self, BOOL, SBUIController, clickedMenuButton) {
     //Sending while FB isn't alive will cause a hang waiting for a reply (since it'll never get one)
     //To keep in app as stock as possible, don't intercept the home button when the app is active
     //So only take action if FB is active but in the background
-    if (keepAlive) {
+    if ([keepAlive valid]) {
         CPDistributedMessagingCenter *center = [CPDistributedMessagingCenter centerNamed:@"com.adambell.MessageBox.FBMessageCenter"];
         NSDictionary *reply = [center sendMessageAndReceiveReplyName:@"DismissChatHeadsIfNeeded" userInfo:nil];
         
@@ -369,31 +374,18 @@ static void fbQuitting(CFNotificationCenterRef center, void *observer, CFStringR
     [[NSClassFromString(@"SBUIController") sharedInstance] hookFacebook];
 }
 
-static void fb_gpusKillClient()
-{
-    DebugLog(@"OpenGL... no u");
-    
-    return;
-}
+static int (*orig_XPConnectionHasEntitlement)(id connection, NSString *entitlement);
 
-static void fb_gpus_ReturnNotPermittedKillClient()
-{
-    DebugLog(@"OpenGL... no u");
-    
-    return;
-}
-
-static void (*orig_gpus_ReturnNotPermittedKillClient)();
-static void (*orig_gpus_ReturnNotPermittedKillClient2)();
-static void (*orig_gpusKillClient)();
-
-static int fb_XPConnectionHasEntitlement(NSString *string)
+static int fb_XPConnectionHasEntitlement(id connection, NSString *entitlement)
 {
     DebugLog(@"XPCConnectionHasEntitlement... no u");
-    return 1;
+    
+    //Only grant the required entitlement
+    if (xpc_connection_get_pid(connection) == PIDForProcessNamed(@"SpringBoard") && [entitlement isEqualToString:@"com.apple.multitasking.unlimitedassertions"])
+        return 1;
+    
+    return orig_XPConnectionHasEntitlement(connection, entitlement);
 }
-
-static int (*orig_XPConnectionHasEntitlement)(NSString *string);
 
 CHConstructor
 {
@@ -447,17 +439,9 @@ CHConstructor
         // Load appropriate libraries to be hooked
         
         dlopen(XPCObjects, RTLD_LAZY);
-        dlopen(libGPUSupport, RTLD_LAZY);
-        dlopen(libGPUSupportMercury, RTLD_LAZY);
         
         // Gotta hook the XPC entitlement function since the facebook app isn't signed with the proper assertion entitlements
         
-        MSHookFunction(((int *)MSFindSymbol(NULL, "_XPCConnectionHasEntitlement")), (int *)fb_XPConnectionHasEntitlement, (int **)orig_XPConnectionHasEntitlement);
-        
-        // Gotta hook some OpenGL exeption handlers so they don't crash the app
-        
-        MSHookFunction(((int *)MSFindSymbol(NULL, "_gpus_ReturnNotPermittedKillClient")), (int *)fb_gpus_ReturnNotPermittedKillClient, (int **)orig_gpus_ReturnNotPermittedKillClient);
-        MSHookFunction(((int *)MSFindSymbol(NULL, "_gpus_ReturnNotPermittedKillClient")), (int *)fb_gpus_ReturnNotPermittedKillClient, (int **)orig_gpus_ReturnNotPermittedKillClient2);
-        MSHookFunction(((int *)MSFindSymbol(NULL, "_gpusKillClient")), (int *)fb_gpusKillClient, (int **)orig_gpusKillClient);
+        MSHookFunction(((int *)MSFindSymbol(NULL, "_XPCConnectionHasEntitlement")), (int *)fb_XPConnectionHasEntitlement, (int **)&orig_XPConnectionHasEntitlement);
     }
 }
