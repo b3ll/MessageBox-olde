@@ -14,11 +14,6 @@
 #include <stdbool.h>
 #import <sys/sysctl.h>
 
-#define XPC_CONNECTION_MACH_SERVICE_LISTENER (1<<0)
-#define XPC_CONNECTION_MACH_SERVICE_PRIVILEGED (1<<1)
-#define XPC_CONNECTION_MACH_SERVICE_NOT_SURE (1<<2)
-#define XPC_CONNECTION_MACH_SERVICE_SPRINGBOARD_HAX (1<<3)
-
 extern "C" int xpc_connection_get_pid(id connection);
 
 typedef NS_ENUM(NSUInteger, BKSProcessAssertionReason)
@@ -40,7 +35,7 @@ typedef NS_ENUM(NSUInteger, ProcessAssertionFlags)
     ProcessAssertionFlagPreventSuspend         = 1 << 0,
     ProcessAssertionFlagPreventThrottleDownCPU = 1 << 1,
     ProcessAssertionFlagAllowIdleSleep         = 1 << 2,
-    ProcessAssertionFlagPreventThrottleDownUI  = 1 << 3
+    ProcessAssertionFlagWantsForegroundResourcePriority  = 1 << 3
 };
 
 

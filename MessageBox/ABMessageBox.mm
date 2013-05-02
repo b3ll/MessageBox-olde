@@ -172,7 +172,7 @@ CHDeclareMethod0(void, SBUIController, hookFacebook)
     // Need a BKSProcessAssertion to keep the app from being killed / allow the UI thread to work even when suspended
     
     keepAlive = [[BKSProcessAssertion alloc] initWithPID:facebookPID
-                                                   flags:(ProcessAssertionFlagPreventSuspend | ProcessAssertionFlagAllowIdleSleep | ProcessAssertionFlagPreventThrottleDownCPU | ProcessAssertionFlagPreventThrottleDownUI)
+                                                   flags:(ProcessAssertionFlagPreventSuspend | ProcessAssertionFlagAllowIdleSleep | ProcessAssertionFlagPreventThrottleDownCPU | ProcessAssertionFlagWantsForegroundResourcePriority)
                                                   reason:kProcessAssertionReasonBackgroundUI
                                                     name:@"epichax"
                                              withHandler:^void (void)
