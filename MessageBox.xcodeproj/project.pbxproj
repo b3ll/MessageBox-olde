@@ -944,7 +944,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+			shellScript = "export iOSOpenDevDevice=localhost\n/opt/iOSOpenDev/bin/iosod --xcbp\n\nscp -P 2222 Packages/ca.adambell.MessageBox_1.0-6_iphoneos-arm.deb root@localhost:~/ && ssh root@localhost -p 2222 \"dpkg -i ca.adambell.MessageBox_1.0-6_iphoneos-arm.deb && killall backboardd\"";
 		};
 		66D26FBE172888B000767DD4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
