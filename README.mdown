@@ -6,7 +6,7 @@ Set your Facebook Chat Heads free!
 How do I Message Box?
 =============
 
-It's really simple. Simply install the [.deb](https://github.com/b3ll/MessageBox/raw/master/Packages/ca.adambell.MessageBox_1.0-6_iphoneos-arm.deb) using any means (ssh, iFile) on any 6.X jailbroken iOS Device. You'll also need to reboot (respringing is not enough as parts of this hook into backboardd, so you could also just kill SpringBoard **AND** backboardd and you should be fine).
+It's really simple. Simply install the [.deb](https://github.com/b3ll/MessageBox/raw/master/Packages/ca.adambell.MessageBox_1.0-7_iphoneos-arm.deb) using any means (ssh, iFile) on any 6.X jailbroken iOS Device. You'll also need to reboot (respringing is not enough as parts of this hook into backboardd, so you could also just kill SpringBoard **AND** backboardd and you should be fine).
 
 After that, simply open the Facebook app, and you'll be able to bring any Chat Heads outside the app when you quit it.
 
