@@ -442,10 +442,20 @@ static void fbShouldRotate(CFNotificationCenterRef center, void *observer, CFStr
     [fbChatHeadViewController forceRotationToInterfaceOrientation:newOrientation];
 }
 
+
+// Forces UIKeyboard and copy/paste popovers to stay visible when a notification comes in
+
+static void generalPushNotificationReceived(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    if ([UIApplication sharedApplication].windows.count > 1)
+    {
+        [[[UIApplication sharedApplication] windows][1] setWindowLevel:10000];
+    }
+}
+
 static void fbChatNotificationReceived(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
     [fbChatHeadViewController enteredForeground];
-    [[[UIApplication sharedApplication] windows][1] setWindowLevel:10000];
 }
 
 static void messageBoxPrefsChanged(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
@@ -489,6 +499,7 @@ CHConstructor
         CFNotificationCenterAddObserver(darwin, NULL, fbShouldRotate, CFSTR(ROTATION_LANDSCAPE_RIGHT_NOTIFICATION), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, messageBoxPrefsChanged, CFSTR("ca.adambell.MessageBox-preferencesChanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, fbChatNotificationReceived, CFSTR(PUSH_NOTIFICATION_RECEIVED), NULL, CFNotificationSuspensionBehaviorCoalesce);
+        CFNotificationCenterAddObserver(darwin, NULL, generalPushNotificationReceived, CFSTR(GENERAL_PUSH_NOTIFICATION_RECEIVED), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, ThrowChatHeadsOffscreen, CFSTR("ca.adambell.MessageBox-throwChatHeadsOffscreen"), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, PushChatHeadsOnscreen, CFSTR("ca.adambell.MessageBox-pushChatHeadsOnscreen"), NULL, CFNotificationSuspensionBehaviorCoalesce);
         CFNotificationCenterAddObserver(darwin, NULL, PushChatHeadsOnscreenInstant, CFSTR("ca.adambell.MessageBox-pushChatHeadsOnscreenInstant"), NULL, CFNotificationSuspensionBehaviorCoalesce);

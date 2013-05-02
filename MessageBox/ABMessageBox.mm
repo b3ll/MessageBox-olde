@@ -272,6 +272,8 @@ CHOptimizedMethod1(self, SBBulletinBannerView *, SBBulletinBannerView, initWithI
             return nil;
         }
     }
+    
+    notify_post(GENERAL_PUSH_NOTIFICATION_RECEIVED);
         
     return hax;
 }

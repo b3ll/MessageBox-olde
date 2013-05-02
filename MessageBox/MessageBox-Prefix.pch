@@ -24,3 +24,4 @@
 #define ROTATION_LANDSCAPE_RIGHT_NOTIFICATION "ca.adambell.MessageBox.fbShouldRotateLandscapeRight"
 #define DEVICE_ORIENTATION_CHANGED_NOTIFICATION "ca.adambell.MessageBox.fbShouldRotateToDeviceOrientation"
 #define PUSH_NOTIFICATION_RECEIVED "ca.adambell.MessageBox.pushNotificationReceived"
+#define GENERAL_PUSH_NOTIFICATION_RECEIVED "ca.adambell.MessageBox.generalPushNotificationReceived"
